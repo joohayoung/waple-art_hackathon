@@ -10,7 +10,10 @@
     {% endblock %}
 </head>
 <body>
-    <h1>BASE 템플릿 상속 확인</h1>
+    <div id='nav'>
+        <img id='logo' src={% static 'logo.png' %} alt='logo'>
+        <img id='text_logo' src={% static 'logo2.png' %} alt='logo'>
+    </div>
 
     {% if user.is_authenticated %}
     <!-- 로그인 한 사용자 -->
@@ -29,6 +32,11 @@
     {% endif %}
 
     {% block content %}
+    
     {% endblock %}
+    <div id='bottom'>
+        project team aloha 김신영 이지원 주하영 천희국 최다인<br>
+        copyrightⓒ 2020 All rights reserved by aloha
+    </div>
 </body>
 </html>
