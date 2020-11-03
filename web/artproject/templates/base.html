@@ -1,0 +1,17 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ART Hackathon</title>
+    <link rel="stylesheet" href="{% static 'base.css' %}" type="text/css">
+    {% block style %}
+    {% endblock %}
+</head>
+<body>
+    <h1>BASE 템플릿 상속 확인</h1>
+    {% block content %}
+    {% endblock %}
+</body>
+</html>
