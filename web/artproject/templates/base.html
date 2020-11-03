@@ -11,6 +11,23 @@
 </head>
 <body>
     <h1>BASE 템플릿 상속 확인</h1>
+
+    {% if user.is_authenticated %}
+    <!-- 로그인 한 사용자 -->
+        <li>
+            <form action="{% url 'accountapp:logout' %}" method="POST">
+                {% csrf_token %}
+                <input type="hidden" name="path" value="{{request.path}}">
+                <button type = submit>Log-Out</button>
+            </form>
+        </li>
+    {% else %}
+        <!-- 로그인하지 않은 사용자 -->
+        <!-- <li><a href="{% url 'accountapp:login' %}">Log-In</a></li> -->
+        <li><a href="{% url 'accountapp:login' %}">Log-In</a></li>
+        <li><a href="{% url 'accountapp:sign_up' %}">Sign-Up</a></li>
+    {% endif %}
+
     {% block content %}
     {% endblock %}
 </body>
