@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block style %}
+    <link rel="stylesheet" href="{% static 'mainapp/home.css' %}"> 
+{% endblock %}
+
+{% block content %}
+<h1>upload page</h1>
+<table>
+    <form method="POST">
+        {% csrf_token %}
+        장소명<br>
+        <input type="text" name="name"><br>
+        후기<br>
+        <textarea rows="10" cols="50" name="comment"></textarea><br>
+        이미지<br>
+        <input type="file" name="image"><br>
+        평점<br>
+        <input type="number" name="rating"><br>
+        방문날짜<br>
+        <input type="date" name="date"><br>
+        항목<br>
+        <select name="item">
+            <option value="전시회">전시회</option>
+            <option value="박람회">박람회</option>
+            <option value="공연">공연</option>
+        </select><br>
+        지역<br>
+        <select name="item">
+            <option value="서울">서울</option>
+            <option value="부산">부산</option>
+            <option value="대구">대구</option>
+            <option value="인천">인천</option>
+            <option value="광주">광주</option>
+            <option value="대전">대전</option>
+            <option value="울산">울산</option>
+            <option value="세종">세종</option>
+            <option value="경기도">경기도</option>
+            <option value="강원도">강원도</option>
+            <option value="충청북도">충청북도</option>
+            <option value="충청남도">충청남도</option>
+            <option value="전라남도">전라남도</option>
+            <option value="경상북도">경상북도</option>
+            <option value="경상남도">경상남도</option>
+            <option value="제주">제주</option>
+        </select><br>
+        도시<br>
+        <input type="text" name="city"><br>
+
+        <input type="submit" value="글쓰기">
+    </form>
+</table>
+
+<a href="/">뒤로가기</a>
+{% endblock %}

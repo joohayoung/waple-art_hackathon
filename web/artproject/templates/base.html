@@ -10,31 +10,25 @@
     {% endblock %}
 </head>
 <body>
-    <div id='nav'>
-        <img id='logo' src={% static 'logo.png' %} alt='logo'>
-        {% if user.is_authenticated %}
-        <!-- 로그인 한 사용자 -->
-            <li>
-                <form action="{% url 'accountapp:logout' %}" method="POST">
-                    {% csrf_token %}
-                    <input type="hidden" name="path" value="{{request.path}}">
-                    <button type = submit>로그아웃</button>
-                </form>
-            </li>
-        {% else %}
-            <!-- 로그인하지 않은 사용자 -->
-            <!-- <li><a href="{% url 'accountapp:login' %}">Log-In</a></li> -->
-            <li><a href="{% url 'accountapp:login' %}">로그인</a></li>
-            <li><a href="{% url 'accountapp:sign_up' %}">회원가입</a></li>
-        {% endif %}
-        <img id='text_logo' src={% static 'logo2.png' %} alt='logo'>
-    </div>
+    <h1>BASE 템플릿 상속 확인</h1>
+
+    {% if user.is_authenticated %}
+    <!-- 로그인 한 사용자 -->
+        <li>
+            <form action="{% url 'accountapp:logout' %}" method="POST">
+                {% csrf_token %}
+                <input type="hidden" name="path" value="{{request.path}}">
+                <button type = submit>Log-Out</button>
+            </form>
+        </li>
+    {% else %}
+        <!-- 로그인하지 않은 사용자 -->
+        <!-- <li><a href="{% url 'accountapp:login' %}">Log-In</a></li> -->
+        <li><a href="{% url 'accountapp:login' %}">Log-In</a></li>
+        <li><a href="{% url 'accountapp:sign_up' %}">Sign-Up</a></li>
+    {% endif %}
+
     {% block content %}
-    
     {% endblock %}
-    <div id='bottom'>
-        project team aloha 김신영 이지원 주하영 천희국 최다인<br>
-        copyrightⓒ 2020 All rights reserved by aloha
-    </div>
 </body>
 </html>

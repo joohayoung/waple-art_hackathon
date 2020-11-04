@@ -7,4 +7,16 @@
 
 {% block content %}
 <h1>Home</h1>
+<img src="media/지도.png" alt="Map" height="500">
+
+<table>
+    {% for list in postlist %}
+        <!-- 게시글 클릭시 세부페이지로 넘어갑니다-->
+        <ul style="border: 5px solid red;">
+            <li>{{list.name}}</li>
+            <li><a href="{{list.pk}}/"><img src = "{{list.image.url}}" alt="{{list.name}}" height="100"></a></li>
+        </ul>
+    {% endfor %}
+</table>
+<button><a href="{% url 'mainapp:upload' %}">업로드하기</a></button>
 {% endblock %}
