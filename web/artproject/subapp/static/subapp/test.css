@@ -1,0 +1,21 @@
+.map{
+    width: 50%;
+    height: 50%;
+    border: solid 2px magenta;
+}
+#m1{
+    fill: #0099a4;
+    stroke:#ff00ff;
+    stroke-width:1"
+}
+/* #m5{
+     fill: #0099a4;
+    stroke:#ff00ff;
+    stroke-width:10"
+
+}
+#m6{
+    fill: #000080;
+    stroke: #ff00ff;
+    stroke-width:10" 
+} */
