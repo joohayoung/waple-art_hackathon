@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block style %}
+    <link rel="stylesheet" href="{% static 'mainapp/home.css' %}"> 
+{% endblock %}
+
+{% block content %}
+    <h1>게시글 개별 페이지</h1>
+        <p>장소명:{{post.name}}</p>
+        <p>항목:{{post.item}}</p>
+        <p>방문날짜:{{post.date}}</p>
+        <p>위치:{{post.country}}/{{post.city}}</p>
+        <p>공개여부:{{post.public}}</p>
+        <p>평점:{{post.rating}}</p>
+        {% if post.image %}
+            <img src = "{{ post.image.url }}" alt="{{post.name}}" height="300">
+            <br>
+        {% endif %}
+        <p>후기:{{post.comment}}</p>
+    <a href="/">목록</a>
+    <a href="/{{post.pk}}/remove">삭제</a>
+{% endblock %}
