@@ -13,8 +13,9 @@
     {% for list in postlist %}
         <!-- 게시글 클릭시 세부페이지로 넘어갑니다-->
         <ul style="border: 5px solid red;">
-            <li>{{list.name}}</li>
-            <li><a href="{{list.pk}}/"><img src = "{{list.image.url}}" alt="{{list.name}}" height="100"></a></li>
+            <li>
+                <a href="{{list.pk}}/"> {{list.name}} </a>
+            </li>
         </ul>
     {% endfor %}
 </table>

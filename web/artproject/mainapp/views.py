@@ -5,8 +5,10 @@ from .forms import PostForm
 # Create your views here.
 
 def home(request):
+    context={}
     postlist = Post.objects.all()
-    return render(request, 'mainapp/home.html', {'postlist':postlist})
+    context['postlist'] = postlist
+    return render(request, 'mainapp/home.html', context)
 
 def posting(request, pk):
     # 게시글(Post) 중 pk(primary_key)를 이용해 하나의 게시글(post)를 검색
@@ -17,11 +19,11 @@ def posting(request, pk):
 @login_required
 def upload(request):
     if request.method == 'POST':
-        if request.POST['image']:
+        if 'image' in request.FILES:
             new_article=Post.objects.create(
                 name=request.POST['name'],
                 comment=request.POST['comment'],
-                image=request.POST['image'],
+                image=request.FILES['image'],
                 rating=request.POST['rating'],
                 item=request.POST['item'],
                 date=request.POST['date'],
@@ -32,7 +34,6 @@ def upload(request):
             new_article=Post.objects.create(
                 name=request.POST['name'],
                 comment=request.POST['comment'],
-                image=request.POST['image'],
                 rating=request.POST['rating'],
                 item=request.POST['item'],
                 date=request.POST['date'],

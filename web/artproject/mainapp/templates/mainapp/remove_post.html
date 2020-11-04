@@ -6,11 +6,19 @@
 {% endblock %}
 
 {% block content %}
-    <form method="POST">
+    <form action="{% url 'mainapp:remove_post' Post.pk %}" method="POST">
         {% csrf_token %}
         <h1>정말 삭제하시겠습니까?</h1>
         <h3>{{ Post.name }}</h3>
-        <img src = "{{Post.image.url}}" alt="{{Post.name}}" height="300"><br>
+        <p>항목:{{Post.item}}</p>
+        <p>방문날짜:{{Post.date}}</p>
+        <p>위치:{{Post.country}}/{{Post.city}}</p>
+        <p>공개여부:{{Post.public}}</p>
+        <p>평점:{{Post.rating}}</p>
+        <p>후기:{{Post.comment}}</p>
+        {% if Post.image %}
+            <img src = "{{Post.image.url}}" alt="{{Post.name}}" height="300"><br>
+        {% endif %}
         <button>삭제</button>
         <a href="/">목록</a>
     </form>

@@ -1,5 +1,6 @@
 from django.db import models
-
+import os
+from django.conf import settings
 # Create your models here.
 class Post(models.Model):
     name=models.CharField(max_length=50)
@@ -7,10 +8,15 @@ class Post(models.Model):
     public= models.BooleanField(default=False)
     rating= models.IntegerField()
     date=models.DateField(null=True, blank=True)
-    image=models.ImageField()
+    image=models.ImageField(upload_to='userimg', null=True)
     comment=models.TextField()
     country = models.CharField(max_length=50)
     city = models.CharField(max_length=50)
 
     def __str__(self):
         return self.name
+
+    def delete(self, *args, **kwargs):
+        super(Post, self).delete(*args, **kwargs)
+        if self.image : 
+            os.remove(os.path.join(settings.MEDIA_ROOT, self.image.path))
