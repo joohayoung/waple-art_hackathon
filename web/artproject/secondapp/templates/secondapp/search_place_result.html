@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block style %}
+<style>div{border:solid 1px magenta}</style>
+{% endblock %}
+
+{% block content %}
+<h1>search 결과</h1>
+<!-- 다시검색 -->
+ <div>
+    <form action="{% url 'secondapp:result' %}" method="GET">
+        {% csrf_token %}
+        <input type="text" placeholder="wowplace" name="kw" value="{{kw|default_if_none:''}}">
+        <button type="submit" >검색</button> <br>
+    </form>
+ </div>
+ <!-- 필터링 -->
+ <div>
+     <form action="" method="GET">
+         {% csrf_token %}
+        <h3>유동인구 상세 조건</h3>
+        날짜 : <input type="date" name="start"> ~ <input type="date" name="end"> <br>
+    
+        유동인구
+        성별: 
+        <select name="item">
+            <option value="전체">전체</option>
+            <option value="남성">남성</option>
+            <option value="여성">여성</option>
+        </select>
+        나이대:
+        <select name="item">
+            <option value="전체">전체</option>
+            <option value="10대">10대</option>
+            <option value="20대">20대</option>
+            <option value="30대">30대</option>
+            <option value="40대">40대</option>
+            <option value="50대">50대</option>
+            <option value="60대">60대</option>
+        </select><br>
+
+        <button type="reset">초기화</button>
+        <button type="submit">적용</button>
+    </form>
+ </div>
+ <!-- 결과 -->
+ <div>
+     <h3>검색결과</h3>
+     {% for content in contents %}
+    <div>
+        <h4><a href="{% url 'subapp:detail' content.pk %}">{{content.title}}</a></h4>
+        <b>주최 / 작가</b> : {{content.host}} <br>
+        {% if content.region != N %} <b>지역</b> : {{content.region}}<br> {% endif %}
+        <b>분류</b>>: {{content.category}}
+    </div>
+    {% empty %}
+    <div>
+        0 result found.
+    </div>
+    <div>
+        <h4>AI예술박람회</h4>
+        날짜: 2020.11.30~2020.12.02 D-10 <br>
+        유동인구: 480<br>
+        유형: 공연/전시<br>
+    </div>
+    <div>
+        <h4>국제무용페스티벌</h4>
+        날짜: 2020.12.04~2020.12.07 D-30 <br>
+        유동인구: 320<br>
+        유형: 축제/행사<br>
+    </div>
+    {% endfor %}
+ </div>
+{% endblock %}
