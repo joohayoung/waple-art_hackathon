@@ -6,7 +6,8 @@ from django.conf import settings
 
 app_name = 'mainapp'
 urlpatterns = [
-    path('', views.home, name='home'), #postlist보여줌
+    path('', views.home, name='home'), 
+    path('map/', views.map, name='map'), #postlist보여줌
     path('<int:pk>/',views.posting, name="posting"), #post 세부내용
     path('upload/', views.upload, name='upload'), #postupload 
     path('<int:pk>/remove/', views.remove_post, name='remove_post'),

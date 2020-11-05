@@ -18,6 +18,6 @@
             <br>
         {% endif %}
         <p>후기:{{post.comment}}</p>
-    <a href="/">목록</a>
+    <a href="{% url 'mainapp:map' %}">목록</a>
     <a href="/{{post.pk}}/remove">삭제</a>
 {% endblock %}
