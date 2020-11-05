@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block style %}
-<link rel="stylesheet" href="{% static 'subapp/result.css' %}" type="text/css">
+{% comment %} <link rel="stylesheet" href="{% static 'subapp/result.css' %}" type="text/css"> {% endcomment %}
 {% endblock %}
 
 {% block content %}
@@ -16,7 +16,7 @@
     </form>
  </div>
  <div>
-     현재 지역 : (ex서울)
+     현재 검색조건 : (ex서울 20대 남성)
      <div>
          <input type="checkbox" id="서울">
          <label for="서울">서울</label>
@@ -39,7 +39,7 @@
      <form action="" method="GET">
          {% csrf_token %}
         <h3>유동인구 상세 조건</h3>
-        날짜 : <input type="date" name="start"> ~ <input type="date" name="end"> <br>
+        날짜? : <input type="date" name="start"> ~ <input type="date" name="end"> <br>
     
         유동인구<br>
         성별: 
@@ -78,11 +78,12 @@
         0 result found.
     </div>
     <div>
-        <h4>아트터미널 작은미술관</h4>
+        <h4><a href="{% url 'secondapp:place_detail' %}">아트터미널 작은미술관</h4>
         위치 : 강원도 정선군 고한읍 지장천로856<br>
         유동인구:20대 남성이 많이 방문<br>
         기타정보 : <br>
     </div>
+    <br>
     <div>
         <h4>밀양 누루(樓樓) 미술관</h4>
         위치 : 경남 밀양시 하남읍 명례로 451 구. 명례초등학교<br>

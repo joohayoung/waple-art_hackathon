@@ -6,3 +6,6 @@ def search_place(request):
 
 def result(request):
     return render(request, 'secondapp/search_place_result.html')
+
+def place_detail(request):
+    return render(request, 'secondapp/place_detail.html')

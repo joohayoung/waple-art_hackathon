@@ -3,9 +3,6 @@ from .models import ArtInfoDB, PerformanceDB, FestivalDB, ArtWorkDB
 from django.db.models import Q, Count
 # Create your views here.
 
-def test(request):
-    return render(request, 'subapp/test.html')
-
 def search(request):
     return render(request, 'subapp/search.html')
 
