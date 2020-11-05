@@ -30,6 +30,7 @@ def sign_up(request):
 def login(request):
     context={}
 
+    # next= request.GET['next']
     # POST Method
     if request.method == "POST":
         username = request.POST['username']
@@ -44,6 +45,7 @@ def login(request):
                 # 사용자가 있으면 로그인후 home으로
                 auth.login(request, user)
                 return redirect('mainapp:home')
+                # return redirect(next)
             else:
                 context['error'] = '아이디와 비밀번호를 다시 확인해주세요.'
         else:

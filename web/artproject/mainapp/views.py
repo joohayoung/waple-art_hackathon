@@ -16,23 +16,23 @@ def map(request):
     postlist = postlist.filter(user = request.user)
 
     # if postlist:
-    #     Seoul = postlist.filter(country = '서울').order_by('-date').first()
-    #     Busan = postlist.filter(country = '부산').order_by('-date').first()
-    #     Gwangju = postlist.filter(country = '광주').order_by('-date').first()
-    #     Ulsan = postlist.filter(country = '울산').order_by('-date').first()
-    #     Daegu = postlist.filter(country = '대구').order_by('-date').first()
-    #     Daejeon = postlist.filter(country = '대전').order_by('-date').first()
-    #     Incheon = postlist.filter(country = '인천').order_by('-date').first()
+    Seoul = postlist.filter(country = '서울').order_by('-date').first()
+    Busan = postlist.filter(country = '부산').order_by('-date').first()
+    Gwangju = postlist.filter(country = '광주').order_by('-date').first()
+    Ulsan = postlist.filter(country = '울산').order_by('-date').first()
+    Daegu = postlist.filter(country = '대구').order_by('-date').first()
+    Daejeon = postlist.filter(country = '대전').order_by('-date').first()
+    Incheon = postlist.filter(country = '인천').order_by('-date').first()
 
-    #     GG = postlist.filter(country = '경기도').order_by('-date').first()
-    #     GW = postlist.filter(country = '강원도').order_by('-date').first()
-    #     CN = postlist.filter(Q(country = '충청남도')|Q(country='세종시')).order_by('-date').first()
-    #     CB = postlist.filter(country = '충청북도').order_by('-date').first()
-    #     GB = postlist.filter(country = '경상북도').order_by('-date').first()
-    #     JB = postlist.filter(country = '전라북도').order_by('-date').first()
-    #     GN = postlist.filter(country = '경상남도').order_by('-date').first()
-    #     JN = postlist.filter(country = '전라남도').order_by('-date').first()
-    #     Jeju = postlist.filter(country = '제주도').order_by('-date').first()
+    GG = postlist.filter(country = '경기도').order_by('-date').first()
+    GW = postlist.filter(country = '강원도').order_by('-date').first()
+    CN = postlist.filter(Q(country = '충청남도')|Q(country='세종시')).order_by('-date').first()
+    CB = postlist.filter(country = '충청북도').order_by('-date').first()
+    GB = postlist.filter(country = '경상북도').order_by('-date').first()
+    JB = postlist.filter(country = '전라북도').order_by('-date').first()
+    GN = postlist.filter(country = '경상남도').order_by('-date').first()
+    JN = postlist.filter(country = '전라남도').order_by('-date').first()
+    Jeju = postlist.filter(country = '제주도').order_by('-date').first()
     
     # else:
     #     Seoul = None
@@ -52,7 +52,16 @@ def map(request):
     #     GN = None
     #     JN = None
     #     Jeju = None
-        
+    context['list'] = {'Seoul':Seoul, 'Busan':Busan, 'Gwangju':Gwangju, 'Ulsan':Ulsan, 'Daegu':Daegu, 'Daejeon':Daejeon, 'Incheon':Incheon,
+                        'GG':GG, 'GW':GW, 'CN':CN, 'CB':CB, 'GB':GB, 'JB':JB, 'GN':GN, 'JN':JN, 'Jeju':Jeju}
+
+    # context['Seoul'] = Seoul
+    # context['Busan'] = Busan
+    # context['Gwangju'] = Gwangju
+    # context['Ulsan'] = Ulsan
+    # context['Daegu'] = Daegu
+    # context['Daejeon'] = Daejeon
+    # context['Incheon'] = Incheon
 
     # context['GG'] = GG
     # context['GW'] = GW
