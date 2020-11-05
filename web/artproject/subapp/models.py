@@ -14,43 +14,19 @@ class ArtInfoDB(models.Model):
         return f'{self.id}: {self.title} - {self.category}'
 
 class PerformanceDB(models.Model):
-    basic_title = models.ForeignKey(
-        ArtInfoDB, on_delete=models.CASCADE, related_name='performance_title')
-    basic_host = models.ForeignKey(
-        ArtInfoDB, on_delete=models.CASCADE, related_name='performance_host')
-    basic_region = models.ForeignKey(
-        ArtInfoDB, on_delete=models.CASCADE, related_name='performance_region')
-    basic_Sdate = models.ForeignKey(
-        ArtInfoDB, on_delete=models.CASCADE, related_name='performance_Sdate')
-    basic_Edate = models.ForeignKey(
-        ArtInfoDB, on_delete=models.CASCADE, related_name='performance_Edate')
+    artinfo = models.ForeignKey(
+        ArtInfoDB, on_delete=models.CASCADE, related_name='performance')
     cl = models.CharField(max_length=10) #소분류
     genre = models.CharField(max_length=10)
     place = models.CharField(max_length=30)
-    place = models.CharField(max_length=50) #관람등급 view rate
+    Vrate = models.CharField(max_length=50, null=True) #관람등급 view rate
 
 class FestivalDB(models.Model):
-    basic_title = models.ForeignKey(
-        ArtInfoDB, on_delete=models.CASCADE, related_name='festival_title')
-    basic_host = models.ForeignKey(
-        ArtInfoDB, on_delete=models.CASCADE, related_name='festival_host')
-    basic_region = models.ForeignKey(
-        ArtInfoDB, on_delete=models.CASCADE, related_name='festival_region')
-    basic_Sdate = models.ForeignKey(
-        ArtInfoDB, on_delete=models.CASCADE, related_name='festival_Sdate')
-    basic_Edate = models.ForeignKey(
-        ArtInfoDB, on_delete=models.CASCADE, related_name='festival_Edate')
+    artinfo = models.ForeignKey(
+        ArtInfoDB, on_delete=models.CASCADE, related_name='festival')
     content = models.TextField() #상세내용
 
 class ArtWorkDB(models.Model):
-    basic_title = models.ForeignKey(
-        ArtInfoDB, on_delete=models.CASCADE, related_name='artwork_title')
-    basic_host = models.ForeignKey(
-        ArtInfoDB, on_delete=models.CASCADE, related_name='artwork_host')
-    basic_region = models.ForeignKey(
-        ArtInfoDB, on_delete=models.CASCADE, related_name='artwork_region')
-    basic_Sdate = models.ForeignKey(
-        ArtInfoDB, on_delete=models.CASCADE, related_name='artwork_Sdate')
-    basic_Edate = models.ForeignKey(
-        ArtInfoDB, on_delete=models.CASCADE, related_name='artwork_Edate')
+    artinfo = models.ForeignKey(
+        ArtInfoDB, on_delete=models.CASCADE, related_name='artwork')
     cl = models.CharField(max_length=10) #소분류

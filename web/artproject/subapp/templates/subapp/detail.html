@@ -5,7 +5,25 @@
 {% endblock %}
 
 {% block content %}
-<h1>문화 정보 detail</h1>
-{{ content.basic_title }}
+    <h1>문화 정보 detail</h1>
+
+    {% if Aitem  %}
+    <h1> {{ Aitem.artinfo.title }} </h1>
+    주최 : {{ Aitem.artinfo.host }} <br>
+    기간 : {{ Aitem.artinfo.start_date }} ~ {{ Aitem.artinfo.end_date }} <br>
+    분류 : {{Aitem.artinfo.category}} / {{ Aitem.cl }} <br>
+    장르 : {{ Aitem.genre }} <br>
+    장소 : {{Aitem.artinfo.region}}/{{ Aitem.place }} <br>
+    관람등급 : {{Aitem.Vrate}} <br>
+    {% endif %}
+
+    {% if Bitem %}
+    <h1> {{ Bitem.artinfo.title }} </h1>
+    주최 : {{ Bitem.artinfo.host}} <br>
+    기간 : {{Bitem.artinfo.start_date}} ~ {{Bitem.artinfo.end_date}} <br>
+    분류 : {{Bitem.artinfo.category}} <br>
+    지역 : {{Bitem.artinfo.region}} <br>
+    내용 : {{Bitem.content}} <br>
+    {% endif%}
 
 {% endblock %}

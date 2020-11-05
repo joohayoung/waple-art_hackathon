@@ -33,12 +33,17 @@ def result(request):
 
 def detail(request, content_pk):
     context={}
+    Aitem = None
+    Bitem = None
+    contentt = ArtInfoDB.objects.get(pk = content_pk)
 
-    content = PerformanceDB.objects.get(basic_title=content_pk)
-    if content == False : 
-        content = FestivalDB.objects.get(pk=content_pk)
-    if content == False :
-        content = ArtWorkDB.objects.get(pk=content_pk)
+    if contentt.category == '공연/전시' : 
+        Aitem = PerformanceDB.objects.get(artinfo_id=content_pk)
+    elif contentt.category == '축제/행사':
+        Bitem = FestivalDB.objects.get(artinfo_id=content_pk)
+    else : #'미술작품/건축물'
+        item = ArtWorkDB.objects.get(artinfo_id=content_pk)
 
-    context['content'] = content
+    context['Aitem'] = Aitem
+    context['Bitem'] = Bitem
     return render(request, 'subapp/detail.html', context)
