@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'accountapp',
     'mainapp',
     'subapp',
+    'secondapp',
 ]
 
 MIDDLEWARE = [

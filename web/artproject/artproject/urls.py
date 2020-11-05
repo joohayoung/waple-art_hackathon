@@ -23,4 +23,5 @@ urlpatterns = [
     path('', include('mainapp.urls')),
     path('accountapp/', include('accountapp.urls')),
     path('subapp/', include('subapp.urls')),
+    path('secondapp/', include('secondapp.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) #url/media/파일명 점근을 가능하게 한다.
