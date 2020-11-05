@@ -2,28 +2,38 @@
 {% load static %}
 
 {% block style %}
+    <link rel="stylesheet" href="{% static 'subapp/search.css' %}" type="text/css">
 {% endblock %}
 
 {% block content %}
-    <h1>검색하는 페이지 - 문화정보검색</h1>
+    <h3>검색하는 페이지 - 문화정보검색</h3>
     <form action="{% url 'subapp:result' %}" method="GET">
         {% csrf_token %}
-        <input type="text" placeholder="wowplace" name="kw" value="{{kw|default_if_none:''}}">
-        <button type="submit" >검색</button> <br>
-        ex > 경주 / 경주 공연 / 서울 전시 예시키워드 몇개 두고 바뀌면 좋겠다<br> 
-    </form>
-    <div>
-        <h3>지금하고 있는 전시 공연</h3>
-        <div>
-            <b>전시회이름</b> <br>
-            날짜: 2020.11.30~2020.12.02 D-10 <br>
+        <div id='search_input'>
+            <input type="text" placeholder="wowplace" name="kw" value="{{kw|default_if_none:''}}">
+            <button type="submit" >검색</button> <br>
         </div>
-    </div>
-    <div>
-        <h3>지금하고 있는 ??</h3>
-        <div>
-            <b>전시회이름</b> <br>
-            날짜: 2020.11.30~2020.12.02 D-10 <br>
+        <div id='tag'>
+            <span>#경주</span>
+            <span>#경주 공연</span>
+            <span>#서울 전시회</span>
+            {% comment %} ex > 경주 / 경주 공연 / 서울 전시 예시키워드 몇개 두고 바뀌면 좋겠다<br>  {% endcomment %}
+        </div>
+    </form>
+    <div id='result_container'>
+        <div id='place'>
+            <h4>지금하고 있는 전시 공연</h4>
+            <div>
+                <b>전시회이름</b> <br>
+                날짜: 2020.11.30~2020.12.02 D-10 <br>
+            </div>
+        </div>
+        <div id='place'>
+            <h4>지금하고 있는 ??</h4>
+            <div>
+                <b>전시회이름</b> <br>
+                날짜: 2020.11.30~2020.12.02 D-10 <br>
+            </div>
         </div>
     </div>
 {% endblock %}
