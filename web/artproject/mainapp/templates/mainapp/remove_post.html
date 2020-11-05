@@ -20,6 +20,6 @@
             <img src = "{{Post.image.url}}" alt="{{Post.name}}" height="300"><br>
         {% endif %}
         <button>삭제</button>
-        <a href="/">목록</a>
+        <a href="{% url 'mainapp:map' %}">목록</a>
     </form>
 {% endblock %}

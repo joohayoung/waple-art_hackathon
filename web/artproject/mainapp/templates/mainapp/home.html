@@ -6,18 +6,8 @@
 {% endblock %}
 
 {% block content %}
-<h1>Home</h1>
-<img src="media/지도.png" alt="Map" height="500">
-
-<table>
-    {% for list in postlist %}
-        <!-- 게시글 클릭시 세부페이지로 넘어갑니다-->
-        <ul style="border: 5px solid red;">
-            <li>
-                <a href="{{list.pk}}/"> {{list.name}} </a>
-            </li>
-        </ul>
-    {% endfor %}
-</table>
-<button><a href="{% url 'mainapp:upload' %}">업로드하기</a></button>
+<h1>WowPlace</h1>
+<a href="{% url 'mainapp:map' %}">my Map</a>
+<a href="{% url 'subapp:search' %}">전시 공연 정보(?) 검색</a>
+<a href="">문화 장소 정보(?) 검색</a>
 {% endblock %}
