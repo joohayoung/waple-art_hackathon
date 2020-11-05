@@ -7,8 +7,8 @@
 {% endblock %}
 
 {% block content %}
-<h1>My Map</h1>
-<button><a href="{% url 'mainapp:upload' %}">업로드하기</a></button>
+<h3>My Map</h3>
+<button class='map_bt'><a href="{% url 'mainapp:upload' %}">업로드하기</a></button>
 <!-- <img src="media/지도.png" alt="Map" height="500"> -->
 <div class="map">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 989.73 1317">
@@ -89,7 +89,7 @@
         </svg>
 </div>
 <!-- 원래있던거 지도 성공하면 지우기 -->
-<button id="viewlist" onclick="viewMore()">목록으로 보기</button>
+<button id="viewlist" class='map_bt' onclick="viewMore()">목록으로 보기</button>
 <div id='postlist' style="display: none;">
     <table>
         {% for list in postlist %}
