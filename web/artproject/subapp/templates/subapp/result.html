@@ -2,18 +2,24 @@
 {% load static %}
 
 {% block style %}
+    <link rel="stylesheet" href="{% static 'subapp/search.css' %}" type="text/css">
 <style>div{border:solid 1px magenta}</style>
 {% endblock %}
 
 {% block content %}
- <h1>search 결과</h1>
+ <h3>search 결과</h3>
  <!-- 다시검색 -->
  <div>
     <form action="{% url 'subapp:result' %}" method="GET">
         {% csrf_token %}
         <input type="text" placeholder="wowplace" name="kw" value="{{kw|default_if_none:''}}">
         <button type="submit" >검색</button> <br>
-        ex > 경주 / 경주 공연 / 서울 전시회 예시키워드 몇개 두고 바뀌면 좋겠다<br> 
+        <div id='tag'>
+            <span>#경주</span>
+            <span>#경주 공연</span>
+            <span>#서울 전시회</span>
+            {% comment %} ex > 경주 / 경주 공연 / 서울 전시 예시키워드 몇개 두고 바뀌면 좋겠다<br>  {% endcomment %}
+        </div>
     </form>
  </div>
  <!-- 필터링 -->

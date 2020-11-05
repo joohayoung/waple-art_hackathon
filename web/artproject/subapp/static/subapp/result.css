@@ -1,0 +1,32 @@
+h4{
+    margin: 0%;
+}
+#search_input{
+    display: flex;
+    justify-items: center;
+    justify-content: center;
+    height: 30px;  
+}
+
+input{
+    width: 68%;
+    height: 30px;
+    border: none;
+    outline: none;
+    margin-bottom: 7px;
+    padding: 0;
+    padding-left: 10px;
+}
+button{
+    width: 18%;
+    height: 30px;
+    background-color: rgb(91, 201, 207);
+    color: white;
+    border: none;
+}
+#tag{
+    margin-top: 3px;
+    margin-left: 5%;
+    font-size: 15px;
+    color: rgb(180, 57, 0);
+}
