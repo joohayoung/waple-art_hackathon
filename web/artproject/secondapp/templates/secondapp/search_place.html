@@ -2,16 +2,20 @@
 {% load static %}
 
 {% block style %}
+<link rel="stylesheet" href="{% static 'subapp/search.css' %}" type="text/css">
 {% endblock %}
 
 {% block content %}
     <h1>검색하는 페이지 - 예술공간검색(인기순,유동인구순)</h1>
     <form action="{% url 'secondapp:result' %}" method="GET">
         {% csrf_token %}
-        <input type="text" placeholder="wowplace" name="kw" value="{{kw|default_if_none:''}}">
-        <button type="submit" >검색</button> <br>
+        <div id='search_input'>
+            <input type="text" placeholder="wowplace" name="kw" value="{{kw|default_if_none:''}}">
+            <button type="submit" >검색</button> <br>
+        </div>
     </form>
-    지역<br>
+    <div>
+        지역:
         <select name="country">
             <option value="전체">전체</option>
             <option value="서울">서울</option>
@@ -31,19 +35,37 @@
             <option value="경상남도">경상남도</option>
             <option value="제주">제주</option>
         </select><br>
-    카테고리<br>
+        카테고리:
         <select name="item">
             <option value="전체">전체</option>
             <option value="전시회">전시회</option>
             <option value="박람회">박람회</option>
             <option value="공연">공연</option>
         </select><br>
-    <div>
-        <h3>지금하고 있는 전시 공연</h3>
-        <div>
-            <b>전시회이름</b> <br>
-            날짜: 2020.11.30~2020.12.02 D-10 <br>
-            유동인구수: 300<br>
+        성별: 
+        <select name="item">
+            <option value="전체">전체</option>
+            <option value="남성">남성</option>
+            <option value="여성">여성</option>
+        </select><br>
+        나이대:
+        <select name="item">
+            <option value="전체">전체</option>
+            <option value="10대">10대</option>
+            <option value="20대">20대</option>
+            <option value="30대">30대</option>
+            <option value="40대">40대</option>
+            <option value="50대">50대</option>
+            <option value="60대">60대</option>
+        </select><br>
+    </div>
+    <!--로그인했을시-->
+    <div id="result_container">
+        <h3>관심지역에서 많이 가는 장소</h3>
+        <div id="place">
+            <b>장소이름</b> <br>
+            위치 : 강원도 정선군 고한읍 지장천로856<br>
+            유동인구 : 20대 남성이 많이 방문<br>
         </div>
     </div>
     
