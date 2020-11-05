@@ -11,14 +11,14 @@
 </head>
 <body>
     <div id='nav'>
-        <a href="{% url 'mainapp:home' %}"><img id='logo' src={% static 'logo.png' %} alt='logo'</a>
+        <a href="{% url 'mainapp:home' %}"><img id='logo' src={% static 'logo.png' %} alt='logo'></a>
         {% if user.is_authenticated %}
         <!-- 로그인 한 사용자 -->
             <li>
                 <form action="{% url 'accountapp:logout' %}" method="POST">
                     {% csrf_token %}
                     <input type="hidden" name="path" value="{{request.path}}">
-                    <button type = submit>Log-Out</button>
+                    <button id='log_out'type = submit>Log-Out</button>
                 </form>
             </li>
         {% else %}

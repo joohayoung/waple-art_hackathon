@@ -21,6 +21,9 @@ body{
     box-shadow: 0 0 10px gray;
 }
 
+a{
+    height: 50px;
+}
 #logo{
     height: 30px;
     padding: 10px;
@@ -31,6 +34,7 @@ body{
 }
 
 #bottom{
+    margin-top: 50px;
     font-weight: 100;
     font-size: 11px;
     color: rgb(255, 239, 209);
@@ -43,3 +47,13 @@ li{
 }
 a:link { color: black; text-decoration: none;}
 a:visited { color: black; text-decoration: none;}
+
+#log_out{
+    background: none;
+    border: none;
+}
+
+h3{
+    text-align: center;
+    color: white;
+}
