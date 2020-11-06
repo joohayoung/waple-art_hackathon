@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block style %}
+    <link rel="stylesheet" href="{% static 'accountapp/login.css' %}" type="text/css"> 
+{% endblock %}
+
+{% block content %}
+<h1>info_detail</h1>
+{{detail.user}}
+{{detail.region}}
+
+{% endblock %} 

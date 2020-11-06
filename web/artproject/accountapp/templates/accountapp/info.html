@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block style %}
+    <link rel="stylesheet" href="{% static 'accountapp/login.css' %}" type="text/css"> 
+{% endblock %}
+
+{% block content %}
+<h1>info</h1>
+<h1>{{user.username}}님 환영합니다</h1>
+
+<table>
+    <form action="{% url 'accountapp:information'%}" method="POST">
+    {% csrf_token %}
+        나이를 선택해주세요<br>
+        <input type="number" name="age"><br>
+        지역을 선택해주세요<br>
+        <select name="region">
+            <option value="서울">서울</option>
+            <option value="부산">부산</option>
+            <option value="대구">대구</option>
+            <option value="인천">인천</option>
+            <option value="광주">광주</option>
+            <option value="대전">대전</option>
+            <option value="울산">울산</option>
+            <option value="세종시">세종시</option>
+            <option value="경기도">경기도</option>
+            <option value="강원도">강원도</option>
+            <option value="충청북도">충청북도</option>
+            <option value="충청남도">충청남도</option>
+            <option value="전라남도">전라남도</option>
+            <option value="경상북도">경상북도</option>
+            <option value="경상남도">경상남도</option>
+            <option value="제주도">제주도</option>
+        </select><br>
+        성별을 선택해주세요<br>
+        <select name="gender">
+            <option value="남성">남성</option>
+            <option value="여성">여성</option>
+        </select><br>
+
+        <input type="submit" value="확인">
+    </form>
+</table>
+{% endblock %} 

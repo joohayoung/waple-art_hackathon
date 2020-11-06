@@ -1,6 +1,8 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.models import User
 from django.contrib import auth
+from django.contrib.auth.decorators import login_required
+from .models import info
 
 # Create your views here.
 
@@ -20,12 +22,35 @@ def sign_up(request):
             )
             # 로그인후 home을 redirect
             auth.login(request, new_user)
-            return redirect('mainapp:home')
+            return redirect('accountapp:information')
         else:
             context['error'] = "아이디와 비밀번호를 다시 확인해주세요."
 
     # GET Method
     return render(request, 'accountapp/signup.html', context)
+
+def information(request):
+    if request.method == 'POST':
+        if 'age' in request.FILES:
+            new_info=info.objects.create(
+                user=User.objects.get(username = request.user.get_username()),
+                age = request.POST['age'],
+                region=request.POST['region'],
+                gender=request.POST['gender'],
+            )
+        else:
+            new_info=info.objects.create(
+                user=User.objects.get(username = request.user.get_username()),
+                age = request.POST['age'],
+                region=request.POST['region'],
+                gender=request.POST['gender'],
+            )
+        return redirect('mainapp:home')
+    return render(request, 'accountapp/info.html')
+
+def info_detail(request):
+    detail=info.objects.all()
+    return render(request, 'accountapp/info_detail.html',{'detail':detail})
 
 def login(request):
     context={}
@@ -44,7 +69,7 @@ def login(request):
             if user is not None:
                 # 사용자가 있으면 로그인후 home으로
                 auth.login(request, user)
-                return redirect('mainapp:home')
+                return redirect('mainapp:map')
                 # return redirect(next)
             else:
                 context['error'] = '아이디와 비밀번호를 다시 확인해주세요.'
