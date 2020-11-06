@@ -20,6 +20,6 @@
         <p>후기:{{post.comment}}</p>
     <button onclick="javascript:history.back();">뒤로가기</button>
     <button onclick="window.close();">창닫기</button>
-    <a href="">수정</a>
+    <a href="{% url 'mainapp:edit_posting' %}">수정</a>
     <a href="/{{post.pk}}/remove">삭제</a>
 {% endblock %}

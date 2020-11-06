@@ -141,3 +141,6 @@ def RegionPostList(request, num):
     context['region'] = region
     context['postlist'] = postlist
     return render(request, 'mainapp/RegionPostList.html', context)
+
+def edit_posting(request):
+    return render(request, 'mainapp/edit_posting.html')

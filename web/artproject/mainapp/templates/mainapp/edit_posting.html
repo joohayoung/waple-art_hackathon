@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block style %}
+    <link rel="stylesheet" href="{% static 'mainapp/home.css' %}"> 
+{% endblock %}
+
+{% block content %}
+    <h1>editpage</h1>
+    <button onclick="javascript:history.back();">뒤로가기</button>
+    <button onclick="window.close();">창닫기</button>
+{% endblock %} 
