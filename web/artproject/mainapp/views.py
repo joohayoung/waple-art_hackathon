@@ -35,7 +35,7 @@ def map(request):
     
     context['list'] = {'Seoul':Seoul, 'Busan':Busan, 'Gwangju':Gwangju, 'Ulsan':Ulsan, 'Daegu':Daegu, 'Daejeon':Daejeon, 'Incheon':Incheon,
                         'GG':GG, 'GW':GW, 'CN':CN, 'CB':CB, 'GB':GB, 'JB':JB, 'GN':GN, 'JN':JN, 'Jeju':Jeju}
-    context['postlist'] = postlist # real 게시물 전체 복록
+    # context['postlist'] = postlist # real 게시물 전체 복록
     print(context['list'])
     return render(request, 'mainapp/map.html', context)
 
@@ -82,6 +82,7 @@ def remove_post(request, pk):
         return redirect('mainapp:map')
     return render(request, 'mainapp/remove_post.html', {'Post': post})
 
+@login_required(login_url='/accountapp/login')
 def RegionPostList(request, num):
     postlist = Post.objects.filter(user = request.user)
     context={}
