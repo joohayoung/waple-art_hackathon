@@ -1,5 +1,6 @@
 from django.contrib import admin
-from .models import Gender, Age
+from .models import PlaceDB
 # Register your models here.
-admin.site.register(Gender)
-admin.site.register(Age)
+# admin.site.register(Gender)
+# admin.site.register(Age)
+admin.site.register(PlaceDB)

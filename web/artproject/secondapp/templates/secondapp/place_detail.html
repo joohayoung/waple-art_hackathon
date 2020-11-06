@@ -9,10 +9,10 @@
 {% block content %}
 <h1>장소 디테일 페이지</h1>
 
-<h3>ex)아트터미널 작은미술관</h3>
+<h3>{{result.title}}</h3>
 <div>
-    <b>위치 : </b> 강원도 정선군 고한읍 지장천로856<br>
-    <b> 유동인구 : </b> 20대 남성이 많이 방문<br> <br>
+    <b>위치 : </b>{{result.region}} / {{result.address}}<br>
+    <b> 유동인구 : </b> xx20대 남성이 많이 방문xx<br> <br>
     <div>
         <h3>통계 그래프 들어갈 부분</h3> <br>
         최근 20xx.xx.xx ~20xx.xx.xx 동안 <br>

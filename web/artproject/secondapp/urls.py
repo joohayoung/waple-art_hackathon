@@ -3,7 +3,6 @@ from . import views
 
 app_name = 'secondapp'
 urlpatterns = [
-    path('search_place/', views.search_place, name='search_place'),
-    path('result/', views.result, name='result'),
-    path('place_deatil/', views.place_detail, name="place_detail"),
+    path("place_search/", views.place_search, name="place_search"),
+    path('place_deatil/<int:pk>', views.place_detail, name="place_detail"),
 ]
