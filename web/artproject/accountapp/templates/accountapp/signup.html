@@ -11,7 +11,9 @@
         {{ error }}
     </div>
     {% endif %}
-
+    <br>
+    <br>
+    <br>
     <div id='login_box'>
         <form action="{% url 'accountapp:sign_up' %}" method="POST">
             {% csrf_token %}

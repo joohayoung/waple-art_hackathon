@@ -6,15 +6,22 @@
 {% endblock %}
 
 {% block content %}
-<h1>info</h1>
-<h1>{{user.username}}님 환영합니다</h1>
+{% comment %} <h1>info</h1> {% endcomment %}
 
-<table>
+<h3>{{user.username}}님 환영합니다</h3>
+<div id='intro'>
+    맞춤형 예술 공간 추천을 위한 정보입력 페이지 입니다.
+</div>
+<div id='login_box'>
     <form action="{% url 'accountapp:information'%}" method="POST">
-    {% csrf_token %}
-        나이를 선택해주세요<br>
+        {% csrf_token %}
+        <div id='question'>
+            나이를 입력해주세요
+        </div>
         <input type="number" name="age"><br>
-        지역을 선택해주세요<br>
+        <div id='question'>
+            거주 지역을 선택해주세요
+        </div>
         <select name="region">
             <option value="서울">서울</option>
             <option value="부산">부산</option>
@@ -33,13 +40,16 @@
             <option value="경상남도">경상남도</option>
             <option value="제주도">제주도</option>
         </select><br>
-        성별을 선택해주세요<br>
+        <div id='question'>
+            성별을 선택해주세요
+        </div>
         <select name="gender">
             <option value="남성">남성</option>
             <option value="여성">여성</option>
-        </select><br>
-
+        </select>
+        <br>
+        <br>
         <input type="submit" value="확인">
     </form>
-</table>
+</div>
 {% endblock %} 
