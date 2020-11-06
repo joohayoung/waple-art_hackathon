@@ -1,0 +1,21 @@
+#feature3{
+    width: 50%;
+    margin-top: 5%;
+    margin-left: 25%;
+    margin-right: 25%;
+}
+#contents{
+    margin-left: 5%;
+}
+#container1{
+    display: flex;
+}
+#container2{
+    font-weight: 700;
+    text-align: right;
+    margin-right: 5px;
+    color: rgb(182, 95, 49);
+}
+#container3{
+    font-weight: 300;
+}

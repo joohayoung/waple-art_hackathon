@@ -2,28 +2,51 @@
 {% load static %}
 
 {% block style %}
+    <link rel="stylesheet" href="{% static 'subapp/detail.css' %}" type='text/css'> 
 {% endblock %}
-
 {% block content %}
-    <h1>문화 정보 detail</h1>
+    {% comment %} <img id='feature3' src={% static 'mainapp/feature3.png' %} alt='feature3'> {% endcomment %}
+    <div id='contents'>
+        {% if Aitem  %}
+        <h1> {{ Aitem.artinfo.title }} </h1>
+        <div id='container1'>
+            <div id='container2'>
+                주 최<br>
+                기 간<br>
+                분 류<br>
+                장 르<br>
+                장 소<br>
+                관람등급<br>
+            </div>
+            <div id='container3'>
+                {{ Aitem.artinfo.host }} <br>
+                {{ Aitem.artinfo.start_date }} ~ {{ Aitem.artinfo.end_date }} <br>
+                {{Aitem.artinfo.category}} / {{ Aitem.cl }} <br>
+                {{ Aitem.genre }} <br>
+                {{Aitem.artinfo.region}}/{{ Aitem.place }} <br>
+                {{Aitem.Vrate}} <br>
+            </div>
+        </div>
+        {% endif %}
 
-    {% if Aitem  %}
-    <h1> {{ Aitem.artinfo.title }} </h1>
-    주최 : {{ Aitem.artinfo.host }} <br>
-    기간 : {{ Aitem.artinfo.start_date }} ~ {{ Aitem.artinfo.end_date }} <br>
-    분류 : {{Aitem.artinfo.category}} / {{ Aitem.cl }} <br>
-    장르 : {{ Aitem.genre }} <br>
-    장소 : {{Aitem.artinfo.region}}/{{ Aitem.place }} <br>
-    관람등급 : {{Aitem.Vrate}} <br>
-    {% endif %}
-
-    {% if Bitem %}
-    <h1> {{ Bitem.artinfo.title }} </h1>
-    주최 : {{ Bitem.artinfo.host}} <br>
-    기간 : {{Bitem.artinfo.start_date}} ~ {{Bitem.artinfo.end_date}} <br>
-    분류 : {{Bitem.artinfo.category}} <br>
-    지역 : {{Bitem.artinfo.region}} <br>
-    내용 : {{Bitem.content}} <br>
-    {% endif%}
-
+        {% if Bitem %}
+        <h1> {{ Bitem.artinfo.title }} </h1>
+        <div id='container1'>
+            <div id='container2'>
+                주최<br>
+                기간<br>
+                분류<br>
+                지역<br>
+                내용<br>
+            </div>
+            <div id='container3'>
+                {{ Bitem.artinfo.host}} <br>
+                {{Bitem.artinfo.start_date}} ~ {{Bitem.artinfo.end_date}} <br>
+                {{Bitem.artinfo.category}} <br>
+                {{Bitem.artinfo.region}} <br>
+                {{Bitem.content}} <br>
+            </div>
+        </div>
+        {% endif%}
+    </div>
 {% endblock %}
