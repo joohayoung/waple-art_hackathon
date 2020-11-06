@@ -8,7 +8,9 @@
     {% comment %} <img id='feature3' src={% static 'mainapp/feature3.png' %} alt='feature3'> {% endcomment %}
     <div id='contents'>
         {% if Aitem  %}
-        <h1> {{ Aitem.artinfo.title }} </h1>
+        <div id='place'>
+            <h4> {{ Aitem.artinfo.title }} </h4>
+        </div>
         <div id='container1'>
             <div id='container2'>
                 주 최<br>
