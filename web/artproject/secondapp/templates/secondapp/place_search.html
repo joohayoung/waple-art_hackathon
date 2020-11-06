@@ -12,6 +12,14 @@
     </div>
     <!-- 검색 -->
     <div>
+    <form action="{% url 'secondapp:place_search' %}" method="GET">
+        {% csrf_token %}
+        <input type="hidden" name="myinfo" value="yes">
+        <input type="hidden" name="region" value="all">
+        <input type="hidden" name="age" value="all">
+        <input type="hidden" name="gender" value="all">
+        <button type="submit">내정보로검색</button>
+    </form>
         <form action="{% url 'secondapp:place_search' %}" method="GET">
             {% csrf_token %}
             <div id='sb_ct'>
@@ -22,7 +30,8 @@
             <div id='filter_ct'>
                 <div id='sb_ct'>
                     <button id='reset' type="reset">초기화</button>
-                    지역 : {{region}} | 성별 : {{gender}} | 나이대 : {{age}} <br>
+                    지역 : {{region}} | 성별 : {%if gender == 'woman'%}여성{%elif gender == 'man'%}남성{%else%}전체{%endif%} | 나이대 : 
+                    {% if age == "0" %}10대 미만{% elif age == "60"%}60대 이상{% elif age == 'all' %}전체{% else %}{{age}} 대{% endif %} <br>
                 </div>
                 <!--필터링 값 입력-->
                 <div id='sub_title'>
@@ -37,46 +46,46 @@
                 <div>
                     <div id='radio_ct'>
                     <!-- 지역 -->
-                        <input type="radio" name="region" id="전체" value = "all"><label for="전체">전체</label>
-                        <input type="radio" name="region" id="서울" value = "서울"><label for="서울">서울</label>
-                        <input type="radio" name="region" id="부산" value = "부산"><label for="부산">부산</label>
-                        <input type="radio" name="region" id="광주" value = "광주"><label for="광주">광주</label>
-                        <input type="radio" name="region" id="인천" value = "인천"><label for="인천">인천</label>
-                        <input type="radio" name="region" id="대구" value = "대구"><label for="대구">대구</label>
-                        <input type="radio" name="region" id="대전" value = "대전"><label for="대전">대전</label>
-                        <input type="radio" name="region" id="울산" value = "울산"><label for="울산">울산</label>
-                        <input type="radio" name="region" id="경기도" value = "경기도"><label for="경기도">경기도</label>
-                        <input type="radio" name="region" id="강원도" value = "강원도"><label for="강원도">강원도</label>
-                        <input type="radio" name="region" id="충청북도" value = "충청북도"><label for="충청북도">충청북도</label>
-                        <input type="radio" name="region" id="충청남도" value = "충청남도"><label for="충청남도">충청남도</label>
-                        <input type="radio" name="region" id="전라북도" value = "전라북도"><label for="전라북도">전라북도</label>
-                        <input type="radio" name="region" id="전라남도" value = "전라남도"><label for="전라남도">전라남도</label>
-                        <input type="radio" name="region" id="경상북도" value = "경상북도"><label for="경상북도">경상북도</label>
-                        <input type="radio" name="region" id="경상남도" value = "경상남도"><label for="경상남도">경상남도</label>
-                        <input type="radio" name="region" id="제주도" value = "제주도"><label for="제주도">제주도</label>
+                        <input type="radio" name="region" id="전체" value = "all" {% if region == 'all' %}checked{% endif %}><label for="전체">전체</label>
+                        <input type="radio" name="region" id="서울" value = "서울" {% if region == '서울' %}checked{% endif %}>><label for="서울">서울</label>
+                        <input type="radio" name="region" id="부산" value = "부산" {% if region == '부산' %}checked{% endif %}>><label for="부산">부산</label>
+                        <input type="radio" name="region" id="광주" value = "광주" {% if region == '광주' %}checked{% endif %}>><label for="광주">광주</label>
+                        <input type="radio" name="region" id="인천" value = "인천" {% if region == '인천' %}checked{% endif %}>><label for="인천">인천</label>
+                        <input type="radio" name="region" id="대구" value = "대구" {% if region == '대구' %}checked{% endif %}>><label for="대구">대구</label>
+                        <input type="radio" name="region" id="대전" value = "대전" {% if region == '대전' %}checked{% endif %}>><label for="대전">대전</label>
+                        <input type="radio" name="region" id="울산" value = "울산" {% if region == '울산' %}checked{% endif %}>><label for="울산">울산</label>
+                        <input type="radio" name="region" id="경기도" value = "경기도" {% if region == '경기도' %}checked{% endif %}>><label for="경기도">경기도</label>
+                        <input type="radio" name="region" id="강원도" value = "강원도" {% if region == '강원도' %}checked{% endif %}>><label for="강원도">강원도</label>
+                        <input type="radio" name="region" id="충청북도" value = "충청북도" {% if region == '충청북도' %}checked{% endif %}>><label for="충청북도">충청북도</label>
+                        <input type="radio" name="region" id="충청남도" value = "충청남도" {% if region == '충청남도' %}checked{% endif %}>><label for="충청남도">충청남도</label>
+                        <input type="radio" name="region" id="전라북도" value = "전라북도" {% if region == '전라북도' %}checked{% endif %}>><label for="전라북도">전라북도</label>
+                        <input type="radio" name="region" id="전라남도" value = "전라남도" {% if region == '전라남도' %}checked{% endif %}>><label for="전라남도">전라남도</label>
+                        <input type="radio" name="region" id="경상북도" value = "경상북도" {% if region == '경상북도' %}checked{% endif %}>><label for="경상북도">경상북도</label>
+                        <input type="radio" name="region" id="경상남도" value = "경상남도" {% if region == '경상남도' %}checked{% endif %}>><label for="경상남도">경상남도</label>
+                        <input type="radio" name="region" id="제주도" value = "제주도" {% if region == '제주도' %}checked{% endif %}>><label for="제주도">제주도</label>
                     </div>
                     <!-- 성별 -->
                     <div id='sub_title'>
                         성별
                     </div>
                     <div id='radio_ct'>
-                        <input type="radio" name="gender" id="성별전체" value="all"><label for="성별전체">전체</label>
-                        <input type="radio" name="gender" id="남성" value="man"><label for="남성">남성</label>
-                        <input type="radio" name="gender" id="여성" value="woman"><label for="여성">여성</label>
+                        <input type="radio" name="gender" id="성별전체" value="all" {% if gender == 'all' %}checked{% endif %}><label for="성별전체">전체</label>
+                        <input type="radio" name="gender" id="남성" value="man" {% if gender == 'man' %}checked{% endif %}><label for="남성">남성</label>
+                        <input type="radio" name="gender" id="여성" value="woman" {% if gender == 'woman' %}checked{% endif %}><label for="여성">여성</label>
                     </div>
                     <!-- 나이대-->
                     <div id='sub_title'>
                         연령층
                     </div>
                     <div id='radio_ct'>
-                        <input type="radio" name="age" id="연령전체" value = "all"><label for="연령전체">전체</label>
-                        <input type="radio" name="age" id="0대" value="0"><label for="0대">10대 미만</label>
-                        <input type="radio" name="age" id="10대" value="10"><label for="10대">10대</label>
-                        <input type="radio" name="age" id="20대" value="20"><label for="20대">20대</label>
-                        <input type="radio" name="age" id="30대" value="30"><label for="30대">30대</label>
-                        <input type="radio" name="age" id="40대" value="40"><label for="40대">40대</label>
-                        <input type="radio" name="age" id="50대" value="50"><label for="50대">50대</label>
-                        <input type="radio" name="age" id="60대" value="60"><label for="60대">60대 이상</label>
+                        <input type="radio" name="age" id="연령전체" value = "all" {% if age == 'all' %}checked{% endif %}><label for="연령전체">전체</label>
+                        <input type="radio" name="age" id="0대" value="0" {% if age == "0" %}checked{% endif %}><label for="0대">10대 미만</label>
+                        <input type="radio" name="age" id="10대" value="10" {% if age == "10" %}checked{% endif %}><label for="10대">10대</label>
+                        <input type="radio" name="age" id="20대" value="20" {% if age == "20" %}checked{% endif %}><label for="20대">20대</label>
+                        <input type="radio" name="age" id="30대" value="30" {% if age == "30" %}checked{% endif %}><label for="30대">30대</label>
+                        <input type="radio" name="age" id="40대" value="40" {% if age == "40" %}checked{% endif %}><label for="40대">40대</label>
+                        <input type="radio" name="age" id="50대" value="50" {% if age == "50" %}checked{% endif %}><label for="50대">50대</label>
+                        <input type="radio" name="age" id="60대" value="60" {% if age == "60" %}checked{% endif %}><label for="60대">60대 이상</label>
                     </div>
                 </div>
             </div>
@@ -97,4 +106,7 @@
             </div>
         {% endfor %}
     </div>
+    {% if error %}
+        <script type="text/javascript">alert("로그인 하세요!")</script>
+    {% endif %}
 {% endblock %}

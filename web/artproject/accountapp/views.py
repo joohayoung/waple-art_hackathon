@@ -31,20 +31,12 @@ def sign_up(request):
 
 def information(request):
     if request.method == 'POST':
-        if 'age' in request.FILES:
-            new_info=info.objects.create(
-                user=User.objects.get(username = request.user.get_username()),
-                age = request.POST['age'],
-                region=request.POST['region'],
-                gender=request.POST['gender'],
-            )
-        else:
-            new_info=info.objects.create(
-                user=User.objects.get(username = request.user.get_username()),
-                age = request.POST['age'],
-                region=request.POST['region'],
-                gender=request.POST['gender'],
-            )
+        new_info=info.objects.create(
+            user=User.objects.get(username = request.user.get_username()),
+            age = request.POST['age'],
+            region=request.POST['region'],
+            gender=request.POST['gender'],
+        )
         return redirect('mainapp:home')
     return render(request, 'accountapp/info.html')
 

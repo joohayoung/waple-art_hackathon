@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import PlaceDB
+from accountapp.models import info
 from django.db.models import Q, Count
 # Create your views here.
 
@@ -9,6 +10,7 @@ def place_search(request):
     region = None
     age = None
     gender = None
+    kw=''
 
     if request.method == "GET":
         kw = request.GET.get('kw', '')
@@ -19,18 +21,41 @@ def place_search(request):
         else:
             results = PlaceDB.objects.all()
 
+        myinfo = request.GET.get('myinfo', 'no')
+        if myinfo == 'yes':
+            if request.user.is_authenticated: # 요청을 보낸 유저가 로그인한 상태일 경우
+                userinfo = info.objects.get(user_id = request.user)
+                region = userinfo.region
+                gender = userinfo.gender
+                if gender=="여성" : gender="woman"
+                else : gender="man"
+                age = userinfo.age
+                if age>=0 and age<10 : age = 0
+                elif age >=10 and age<20 : age = "10"
+                elif age >=20 and age<30 : age = "20"
+                elif age >=30 and age<40 : age = "30"
+                elif age >=40 and age<50 : age = "40"
+                elif age >=50 and age<60 : age = "50"
+                else: age = 60
+            else:
+                region = 'all'
+                gender = 'all'
+                age = 'all'
+                context['error'] = True
+        
+        else:
+            region = request.GET.get('region', 'all')
+            gender = request.GET.get('gender', 'all')
+            age = request.GET.get('age', 'all')
+
         # 페이지를 고민하자
         # 지역필터링
-        region = request.GET.get('region', 'all')
-        if 'all' in region:
+        if region == 'all':
             pass
         else:
-            results = results.objects.filter(region=region)
+            results = results.filter(region=region)
 
         #나이-성별 조건 처리
-        gender = request.GET.get('gender', 'all')
-        age = request.GET.get('age', 'all')
-
         if gender == 'woman':
             if age == '10':
                 results = results.order_by('-ten_w')
@@ -114,6 +139,7 @@ def place_search(request):
     context['region'] = region
     context['age'] = age
     context['gender'] = gender
+    context['kw'] = kw
 
     return render(request, 'secondapp/place_search.html', context)
 
