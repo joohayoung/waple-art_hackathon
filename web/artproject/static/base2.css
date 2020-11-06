@@ -16,7 +16,7 @@ body{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-image: url('nav_background.png');
+    background-color: rgb(231, 190, 167);
     box-shadow: 0 0 10px gray;
 }
 
