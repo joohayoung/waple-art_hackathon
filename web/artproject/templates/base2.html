@@ -27,12 +27,12 @@
             <li><a href="{% url 'accountapp:login' %}">Log-In</a></li>
             <li><a href="{% url 'accountapp:sign_up' %}">Sign-Up</a></li>
         {% endif %}
-        <img id='text_logo' src={% static 'white_logo2.png' %} alt='logo'>
     </div>
 
     {% block content %}
     {% endblock %}
     <div id='bottom'>
+        <img id='text_logo' src={% static 'white_logo2.png' %} alt='logo'>
         project team aloha 김신영 이지원 주하영 천희국 최다인<br>
         copyrightⓒ 2020 All rights reserved by aloha
     </div>    
