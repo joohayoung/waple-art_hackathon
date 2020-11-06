@@ -11,16 +11,23 @@ def place_search(request):
     gender = None
 
     if request.method == "GET":
-        print("GET 요청")
-        #일단 10개를 보여주고 페이지를 고민하자
+        kw = request.GET.get('kw', '')
+        if kw != '':
+            results = PlaceDB.objects.filter(
+                Q(title__contains=kw) | Q(address__contains=kw)
+            )
+        else:
+            results = PlaceDB.objects.all()
+
+        # 페이지를 고민하자
         # 지역필터링
         region = request.GET.get('region', 'all')
         if 'all' in region:
-            results = PlaceDB.objects.all()
+            pass
         else:
-            results = PlaceDB.objects.filter(region=region)
+            results = results.objects.filter(region=region)
 
-        #중복 조건 처리
+        #나이-성별 조건 처리
         gender = request.GET.get('gender', 'all')
         age = request.GET.get('age', 'all')
 
@@ -97,7 +104,7 @@ def place_search(request):
                 pass # 그냥 그대로 전체
 
     else:
-        # 고치기
+        # 고치기 #회원가입 보고
         # 로그인한 사용자일때 > 사용자 정보기준 상위 10개
         results = PlaceDB.objects.all().order_by('allsum')
 
