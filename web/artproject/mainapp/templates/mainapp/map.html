@@ -7,11 +7,11 @@
 {% endblock %}
 
 {% block content %}
-<h3>My Map</h3>
+<h3>마이맵</h3>
 <button class='map_bt'><a href="{% url 'mainapp:upload' %}">업로드하기</a></button>
-<button class='map_bt'>
+{% comment %} <button class='map_bt'>
     <a href="#" onclick="window.open('0/','팝업창이름', 'width=300, height=300, left=150, top=150'); return false" title = "">전체게시글리스트보기</a>
-</button>
+</button> {% endcomment %}
 <div class="map">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 989.73 1317">
     <!--표시할 이미지 패턴 정의-->
@@ -126,7 +126,7 @@
         </svg>
 </div>
 <!-- 원래있던거 지도 성공하면 지우기 -->
-<!-- <button id="viewlist" class='map_bt' onclick="viewMore()">목록으로 보기</button>
+<button id="viewlist" class='map_bt' onclick="viewMore()">목록으로 보기</button>
 <div id='postlist' style="display: none;">
     <table>
         {% for list in postlist %}
@@ -152,5 +152,5 @@
             viewlist.innerText='목록으로 보기';
         }
     }
-</script> -->
+</script>
 {% endblock %}
