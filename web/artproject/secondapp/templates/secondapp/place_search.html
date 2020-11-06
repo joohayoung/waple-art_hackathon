@@ -24,12 +24,12 @@
             {% csrf_token %}
             <div id='sb_ct'>
                 <input id='search_box' type="text" placeholder="wowplace" name="kw" value="{{kw|default_if_none:''}}">
-                <button type="submit" >검색</button>
+                <button id='bt' type="submit" >검색</button>
             </div>
             <h3>WAPLE 필터</h3>
             <div id='filter_ct'>
                 <div id='sb_ct'>
-                    <button id='reset' type="reset">초기화</button>
+                    <button id='bt' type="reset">초기화</button>
                     지역 : {{region}} | 성별 : {%if gender == 'woman'%}여성{%elif gender == 'man'%}남성{%else%}전체{%endif%} | 나이대 : 
                     {% if age == "0" %}10대 미만{% elif age == "60"%}60대 이상{% elif age == 'all' %}전체{% else %}{{age}} 대{% endif %} <br>
                 </div>
