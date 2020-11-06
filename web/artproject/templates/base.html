@@ -16,7 +16,7 @@
         <!-- 로그인 한 사용자 -->
             <li><a href="{% url 'mainapp:map' %}">마이맵</a></li>
             <li><a href="{% url 'subapp:search' %}">예술검색</a></li>
-            <li><a href="{% url 'secondapp:search_place' %}">장소검색</a></li>
+            <li><a href="{% url 'secondapp:place_search' %}">장소검색</a></li>
             <li>
                 <form action="{% url 'accountapp:logout' %}" method="POST">
                     {% csrf_token %}
@@ -29,7 +29,7 @@
             <!-- <li><a href="{% url 'accountapp:login' %}">Log-In</a></li> -->
             <li><a href="{% url 'mainapp:map' %}">마이맵</a></li>
             <li><a href="{% url 'subapp:search' %}">예술검색</a></li>
-            <li><a href="{% url 'secondapp:search_place' %}">장소검색</a></li>
+            <li><a href="{% url 'secondapp:place_search' %}">장소검색</a></li>
             <li><a href="{% url 'accountapp:login' %}">로그인</a></li>
         {% endif %}
     </div>
