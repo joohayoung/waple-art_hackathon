@@ -1,32 +1,34 @@
-{% extends 'base.html' %}
+{% extends 'base2.html' %}
 {% load static %}
 
 {% block style %}
-    <link rel="stylesheet" href="{% static 'mainapp/home.css' %}"> 
+    <link rel="stylesheet" href="{% static 'mainapp/upload.css' %}"> 
 {% endblock %}
 
 {% block content %}
-<h1>upload page</h1>
+<br>
+<a id='back' href="{% url 'mainapp:map' %}">&lt; BACK</a>
+<h3>upload page</h3>
 <table>
     <form action="{% url 'mainapp:upload' %}" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
-        장소명<br>
+        장소명
         <input type="text" name="name"><br>
         후기<br>
         <textarea rows="10" cols="50" name="comment"></textarea><br>
-        이미지<br>
+        이미지
         <input type="file" name="image"><br>
-        평점<br>
+        평점
         <input type="number" name="rating"><br>
-        방문날짜<br>
+        방문일
         <input type="date" name="date"><br>
-        항목<br>
+        항목
         <select name="item">
             <option value="전시회">전시회</option>
             <option value="박람회">박람회</option>
             <option value="공연">공연</option>
         </select><br>
-        지역<br>
+        지역
         <select name="country">
             <option value="서울">서울</option>
             <option value="부산">부산</option>
@@ -46,12 +48,12 @@
             <option value="경상남도">경상남도</option>
             <option value="제주도">제주도</option>
         </select><br>
-        도시<br>
-        <input type="text" name="city"><br>
-
-        <input type="submit" value="글쓰기">
+        도시
+        <input type="text" name="city">
+        <br>
+        <br>
+        <input id='upload_bt' type="submit" value="글쓰기">
     </form>
 </table>
 
-<a href="{% url 'mainapp:map' %}">뒤로가기</a>
 {% endblock %}

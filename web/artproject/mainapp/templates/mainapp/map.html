@@ -126,14 +126,22 @@
         </svg>
 </div>
 <!-- 원래있던거 지도 성공하면 지우기 -->
-<button id="viewlist" class='map_bt' onclick="viewMore()">목록으로 보기</button>
+<button id="viewlist" onclick="viewMore()"> 방문 목록 열기 </button>
 <div id='postlist' style="display: none;">
     <table>
         {% for list in postlist %}
-            
-            <ul style="border: 5px solid red;">
+            <ul>
                 <li>
-                    <a href="/{{list.pk}}/"> {{list.name}} </a>
+                    <a href="/{{list.pk}}/">
+                        <div style='
+                            height: 25px;
+                            background-color: white;
+                            margin: 2px;
+                            margin-right: 40px;
+                            box-shadow: 0 2px 5px -2px gray;'>
+                            {{list.name}}
+                        </div>
+                    </a>
                 </li>
             </ul>
         {% empty %}
@@ -146,10 +154,10 @@
     function viewMore(){
         if(postlist.style.display=='none'){
             $('#postlist').show();
-            viewlist.innerText='목록접기';
+            viewlist.innerText='방문 목록 닫기';
         }else{
             $('#postlist').hide();
-            viewlist.innerText='목록으로 보기';
+            viewlist.innerText='방문 목록 열기';
         }
     }
 </script>

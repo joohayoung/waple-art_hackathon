@@ -6,9 +6,36 @@
 }
 
 .map_bt{
-    width: 50%;
-    height: 30px;
     background-color: rgb(91, 201, 207);
-    color: white;
+    width: 60%;
+    height: 30px;
+    border-radius: 15px;
     border: none;
+    color: white;
+    font-weight: 700;
+    margin-left: 20%;
+    margin-bottom: 20px;
 }
+#viewlist{
+    background-color: rgb(91, 201, 207);
+    width: 60%;
+    height: 30px;
+    border-radius: 15px;
+    border: none;
+    color: white;
+    font-weight: 700;
+    margin-left: 20%;
+}
+
+#icon{
+    width: 10px;
+}
+
+/* .list_box{
+    background-color: white;
+    width:80%;
+    margin: 5px;
+    margin-left: 10%;
+    margin-right: 10%;
+    box-shadow: 0 2px 5px -2px gray;
+} */
