@@ -10,15 +10,16 @@
 
 body{
     margin: 0px;
-    background-image: url('background.png');
+    background-color: rgb(231, 190, 167);
     font-family: 'SCDream';
 }
 #nav{
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     background-color: white;
     box-shadow: 0 0 10px gray;
+    padding-right: 5px;
 }
 
 a{
@@ -27,6 +28,7 @@ a{
 #logo{
     height: 30px;
     padding: 10px;
+    padding-left: 0;
 }
 
 #text_logo{
@@ -37,7 +39,7 @@ a{
     margin-top: 50px;
     font-weight: 100;
     font-size: 11px;
-    color: rgb(255, 239, 209);
+    color: rgba(255, 255, 255, 0.6);
     line-height: 120%;
     text-align: center;
 }

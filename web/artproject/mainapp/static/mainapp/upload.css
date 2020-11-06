@@ -1,0 +1,35 @@
+#back{
+    margin: 20px;
+    font-weight: 800;
+    color: rgb(217, 151, 116);
+    font-size: 20px;
+}
+input{
+    border: solid 0.5px gainsboro;
+    background-color: whitesmoke;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 5px;
+}
+#upload_bt{
+    background-color: rgb(91, 201, 207);
+    width: 60%;
+    height: 30px;
+    border-radius: 15px;
+    border: none;
+    color: white;
+    font-weight: 700;
+    margin-left: 20%;
+}
+
+#container{
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+    font-weight: 500;
+    font-size: 15px;
+}
+/* 
+#container_sub{
+    display: flex;
+} */

@@ -7,11 +7,11 @@
 {% endblock %}
 
 {% block content %}
-<h3>My Map</h3>
+<h3>마이맵</h3>
 <button class='map_bt'><a href="{% url 'mainapp:upload' %}">업로드하기</a></button>
-<button class='map_bt'>
+{% comment %} <button class='map_bt'>
     <a href="#" onclick="window.open('0/','팝업창이름', 'width=300, height=300, left=150, top=150'); return false" title = "">전체게시글리스트보기</a>
-</button>
+</button> {% endcomment %}
 <div class="map">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 989.73 1317">
     <!--표시할 이미지 패턴 정의-->
@@ -126,14 +126,22 @@
         </svg>
 </div>
 <!-- 원래있던거 지도 성공하면 지우기 -->
-<!-- <button id="viewlist" class='map_bt' onclick="viewMore()">목록으로 보기</button>
+<button id="viewlist" onclick="viewMore()"> 방문 목록 열기 </button>
 <div id='postlist' style="display: none;">
     <table>
         {% for list in postlist %}
-            
-            <ul style="border: 5px solid red;">
+            <ul>
                 <li>
-                    <a href="/{{list.pk}}/"> {{list.name}} </a>
+                    <a href="/{{list.pk}}/">
+                        <div style='
+                            height: 25px;
+                            background-color: white;
+                            margin: 2px;
+                            margin-right: 40px;
+                            box-shadow: 0 2px 5px -2px gray;'>
+                            {{list.name}}
+                        </div>
+                    </a>
                 </li>
             </ul>
         {% empty %}
@@ -146,11 +154,11 @@
     function viewMore(){
         if(postlist.style.display=='none'){
             $('#postlist').show();
-            viewlist.innerText='목록접기';
+            viewlist.innerText='방문 목록 닫기';
         }else{
             $('#postlist').hide();
-            viewlist.innerText='목록으로 보기';
+            viewlist.innerText='방문 목록 열기';
         }
     }
-</script> -->
+</script>
 {% endblock %}
