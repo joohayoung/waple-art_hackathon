@@ -11,6 +11,7 @@ urlpatterns = [
     path('<int:pk>/',views.posting, name="posting"), #post 세부내용
     path('upload/', views.upload, name='upload'), #postupload 
     path('<int:pk>/remove/', views.remove_post, name='remove_post'),
+    path('map/<int:num>/', views.RegionPostList, name='RegionPostList'),
 ]
 
 # 이미지 URL 설정

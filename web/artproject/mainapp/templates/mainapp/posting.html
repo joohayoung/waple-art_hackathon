@@ -18,6 +18,8 @@
             <br>
         {% endif %}
         <p>후기:{{post.comment}}</p>
-    <a href="{% url 'mainapp:map' %}">목록</a>
+    <button onclick="javascript:history.back();">뒤로가기</button>
+    <button onclick="window.close();">창닫기</button>
+    <a href="">수정</a>
     <a href="/{{post.pk}}/remove">삭제</a>
 {% endblock %}

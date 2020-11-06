@@ -15,7 +15,7 @@ class Post(models.Model):
     city = models.CharField(max_length=50)
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
     def __str__(self):
-        return self.name
+        return f'{self.pk} : {self.name}'
 
     def delete(self, *args, **kwargs):
         super(Post, self).delete(*args, **kwargs)
