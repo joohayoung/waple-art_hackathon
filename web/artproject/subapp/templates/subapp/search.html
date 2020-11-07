@@ -30,14 +30,12 @@
         날짜 : <input type="date" name="start"> ~ <input type="date" name="end"> <br>
         정렬순 : 나중에 추가 <br>
         유형 : 
-        <input type="checkbox" name="type[]" value="all"id="all" {% if license == 'all' %}checked{% endif %} >
+        <input type="radio" name="category" value="all"id="all" {% if category == 'all' %}checked{% endif %} >
         <label for="all">전체</label>
-        <input type="checkbox" name="type[]" value="performance"id="performance" {% if 'performance' in license %}checked{% endif %}>
+        <input type="radio" name="category" value="performance"id="performance" {% if category ==  'performance'  %}checked{% endif %}>
         <label for="performance">공연/전시</label>
-        <input type="checkbox" name="type[]" value="festival"id="festival" {% if 'festival' in license %}checked{% endif %}>
+        <input type="radio" name="category" value="festival"id="festival" {% if category == 'festival'  %}checked{% endif %}>
         <label for="festival">축제/행사</label>
-        <input type="checkbox" name="type[]" value="artwork"id="artwork" {% if 'artwork' in license %}checked{% endif %}>
-        <label for="artwork">미술작품/건축물</label><br>
 
         <button type="reset">초기화</button>
         <button type="submit">적용</button>

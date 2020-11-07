@@ -5,24 +5,39 @@ from django.db.models import Q, Count
 
 def search(request):
     context={}
+    start = None
+    end = None
+    category = None
+
+    contents = ArtInfoDB.objects.all()
     # 키워드 검색
-    if request.method == "GET":
-        kw = request.GET.get('kw', '')
-        context['kw'] = kw
+    kw = request.GET.get('kw', '')
+    context['kw'] = kw
+    if kw !='': #키워드 입력이 들어왔을때
+        contents = contents.filter(
+            Q(title__contains=kw) | Q(host__contains=kw)|
+            Q(region__contains=kw) | Q(category__contains=kw)
+        ).distinct()
+    else :
+        pass
 
-        #정렬(나중에 추가)
-        contents = ArtInfoDB.objects.all()
+    # 시간 필터링
+    # start = request.GET.get('start', '')
+    # end = request.GET.get('end', '')
+    # context['start'] = start
+    # context['end'] = end
+    
+    category = request.GET.get('category', 'all')
+    context['category'] = category
 
-        #키워드 검색
-        if kw !='': #키워드 입력이 들어왔을때
-            contents = contents.filter(
-                Q(title__contains=kw) | Q(host__contains=kw)|
-                Q(region__contains=kw) | Q(category__contains=kw)
-            ).distinct()
-        else:
-            pass #키워드 검색 안되면 전체
-
-        context['contents'] = contents
+    if category == 'festival' : 
+        contents = contents.filter(category = '축제/행사')
+    elif category == 'performance':
+         contents = contents.filter(category = '공연/전시')
+    else : 
+        pass
+        
+    context['contents'] = contents
     return render(request, 'subapp/search.html', context)
 
 def detail(request, content_pk):
