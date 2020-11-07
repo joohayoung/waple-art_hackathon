@@ -100,7 +100,7 @@
             <div id='place'>
                 <h4><a href="{% url 'secondapp:place_detail' content.pk %}">{{content.title}}</a></h4>
                 지역 : {{content.region}} <br>
-                최근 일주일 방문자 수? : {{content.allsum}}
+                최근 일주일 방문자 수 : {{content.allsum}}
             </div>
         {% empty %}
             <div>

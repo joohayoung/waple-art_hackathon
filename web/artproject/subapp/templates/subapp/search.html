@@ -65,7 +65,7 @@
         <h4><a href="{% url 'subapp:detail' content.pk %}">{{content.title}}</a></h4>
         <b>주최 / 작가</b> : {{content.host}} <br>
         {% if content.region != N %} <b>지역</b> : {{content.region}}<br> {% endif %}
-        <b>분류</b>>: {{content.category}}
+        <b>분류</b>: {{content.category}}
     </div>
     {% empty %}
     <div>

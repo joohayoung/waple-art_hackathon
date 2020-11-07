@@ -5,7 +5,7 @@ from django.db import models
 class ArtInfoDB(models.Model):
     title = models.CharField(max_length=30)
     host = models.CharField(max_length=30)
-    region = models.CharField(max_length=10, Null=True)
+    region = models.CharField(max_length=10, null=True)
     category = models.CharField(max_length=10)
     start_date = models.DateField(null=True, auto_now=False, auto_now_add=False)
     end_date = models.DateField(null=True, auto_now=False, auto_now_add=False)
