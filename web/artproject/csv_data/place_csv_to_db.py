@@ -19,7 +19,7 @@ with open(CSV_PATH, newline='', encoding='UTF8') as csvfile:
             title = row['fclty_nm']
             address = row['area_addr']
             region = row['ctprvn_nm']
-            # image_url = raw['url']
+            image_url = raw['url']
             allsum = row['lcls_all_total_co'] + row['otsd_all_total_co'] + row['tmp_frnr_all_total_co']
 
             kids_m = row['tmp_lcls_10s_belo_male_co'] + row['tmp_otsd_10s_belo_male_co']

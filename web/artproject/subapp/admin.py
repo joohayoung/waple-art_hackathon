@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import ArtInfoDB, PerformanceDB, FestivalDB, ArtWorkDB
+from .models import ArtInfoDB, PerformanceDB, FestivalDB
 # Register your models here.
 
 class ArtInfoAdmin(admin.ModelAdmin):
@@ -14,4 +14,3 @@ class FestivalAdmin(admin.ModelAdmin):
 admin.site.register(ArtInfoDB, ArtInfoAdmin)
 admin.site.register(PerformanceDB, PerformanceAdmin)
 admin.site.register(FestivalDB, FestivalAdmin)
-admin.site.register(ArtWorkDB)
