@@ -12,14 +12,14 @@
     </div>
     <!-- 검색 -->
     <div>
-    <form action="{% url 'secondapp:place_search' %}" method="GET">
-        {% csrf_token %}
-        <input type="hidden" name="myinfo" value="yes">
-        <input type="hidden" name="region" value="all">
-        <input type="hidden" name="age" value="all">
-        <input type="hidden" name="gender" value="all">
-        <button type="submit">내정보로검색</button>
-    </form>
+        <form action="{% url 'secondapp:place_search' %}" method="GET">
+            {% csrf_token %}
+            <input type="hidden" name="myinfo" value="yes">
+            <input type="hidden" name="region" value="all">
+            <input type="hidden" name="age" value="all">
+            <input type="hidden" name="gender" value="all">
+            <button id='fixed2' type="submit">내정보로검색</button>
+        </form>
         <form action="{% url 'secondapp:place_search' %}" method="GET">
             {% csrf_token %}
             <div id='sb_ct'>
@@ -27,9 +27,11 @@
                 <button id='bt' type="submit" >검색</button>
             </div>
             <h3>WAPLE 필터</h3>
+            <br>
+            <br>
             <div id='filter_ct'>
+                <button id='fixed1' type="reset">초기화</button>
                 <div id='sb_ct'>
-                    <button id='bt' type="reset">초기화</button>
                     지역 : {{region}} | 성별 : {%if gender == 'woman'%}여성{%elif gender == 'man'%}남성{%else%}전체{%endif%} | 나이대 : 
                     {% if age == "0" %}10대 미만{% elif age == "60"%}60대 이상{% elif age == 'all' %}전체{% else %}{{age}} 대{% endif %} <br>
                 </div>
