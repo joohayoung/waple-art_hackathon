@@ -16,8 +16,11 @@
         <b> 유동인구 : </b> xx20대 남성이 많이 방문xx
     </div>
     <div>
-        <h3>이번주 통계</h3>
-        최근 2020.08.25 ~2020.08.31 동안 <br>
+        <h3>이번 주 이용자 분석</h3>
+        <div id='intro'>
+            최근 2020.08.22 ~ 2020.08.31의 데이터를 기반으로<br>
+            분석한 결과입니다.
+        </div>
         <!-- <form action="" method = "GET">
             {%csrf_token%}
             <button type="submit">결과보기</button>
@@ -39,27 +42,38 @@
             <div id="timeline-chart"></div>
         </div>
     </div>
-    
     <div>
-        <h3>다음주 예상 통계</h3>
+        <h3>다음 주 이용자 예측</h3>
         <form action="" method="GET">
             {%csrf_token%}
-            다음주 2020.09.01 ~2020.09.07 동안 <br>
+            <div id='intro'>
+                빅데이터를 통해 2020.09.01 ~ 2020.09.07의 이용자 수를 예측한 결과입니다.
+            </div>
+            {% comment %} **나이 전체 선택시 성별 선택 불가** {% endcomment %}
+            <div id='sb_ct'>
+                <div id='sub_title'>
+                    성별 예측 이용자
+                </div>
+                <div id='radio_ct'>
+                    <input type="radio" name="gender" id="성별전체" value="all" {% if gender == 'all' %}checked{% endif %}><label for="성별전체">전체</label>
+                    <input type="radio" name="gender" id="남성" value="man" {% if gender == 'man' %}checked{% endif %}><label for="남성">남성</label>
+                    <input type="radio" name="gender" id="여성" value="woman" {% if gender == 'woman' %}checked{% endif %}><label for="여성">여성</label><br>
+                </div>
+                <div id='sub_title'>
+                    연령별 예측 이용자
+                </div>
+                <div id='radio_ct'>
+                    <input type="radio" name="age" id="연령전체" value = "all" {% if age == 'all' %}checked{% endif %}><label for="연령전체">전체</label>
+                    <input type="radio" name="age" id="0대" value="0" {% if age == "0" %}checked{% endif %}><label for="0대">10대 미만</label>
+                    <input type="radio" name="age" id="10대" value="10" {% if age == "10" %}checked{% endif %}><label for="10대">10대</label>
+                    <input type="radio" name="age" id="20대" value="20" {% if age == "20" %}checked{% endif %}><label for="20대">20대</label>
+                    <input type="radio" name="age" id="30대" value="30" {% if age == "30" %}checked{% endif %}><label for="30대">30대</label>
+                    <input type="radio" name="age" id="40대" value="40" {% if age == "40" %}checked{% endif %}><label for="40대">40대</label>
+                    <input type="radio" name="age" id="50대" value="50" {% if age == "50" %}checked{% endif %}><label for="50대">50대</label>
+                    <input type="radio" name="age" id="60대" value="60" {% if age == "60" %}checked{% endif %}><label for="60대">60대 이상</label>
+                </div>
+            </div>
             <button type="submit">결과보기</button>
-            **나이 전체 선택시 성별 선택 불가**
-            <input type="radio" name="gender" id="성별전체" value="all" {% if gender == 'all' %}checked{% endif %}><label for="성별전체">전체</label>
-            <input type="radio" name="gender" id="남성" value="man" {% if gender == 'man' %}checked{% endif %}><label for="남성">남성</label>
-            <input type="radio" name="gender" id="여성" value="woman" {% if gender == 'woman' %}checked{% endif %}><label for="여성">여성</label><br>
-            <br>
-            <input type="radio" name="age" id="연령전체" value = "all" {% if age == 'all' %}checked{% endif %}><label for="연령전체">전체</label>
-            <input type="radio" name="age" id="0대" value="0" {% if age == "0" %}checked{% endif %}><label for="0대">10대 미만</label>
-            <input type="radio" name="age" id="10대" value="10" {% if age == "10" %}checked{% endif %}><label for="10대">10대</label>
-            <input type="radio" name="age" id="20대" value="20" {% if age == "20" %}checked{% endif %}><label for="20대">20대</label>
-            <input type="radio" name="age" id="30대" value="30" {% if age == "30" %}checked{% endif %}><label for="30대">30대</label>
-            <input type="radio" name="age" id="40대" value="40" {% if age == "40" %}checked{% endif %}><label for="40대">40대</label>
-            <input type="radio" name="age" id="50대" value="50" {% if age == "50" %}checked{% endif %}><label for="50대">50대</label>
-            <input type="radio" name="age" id="60대" value="60" {% if age == "60" %}checked{% endif %}><label for="60대">60대 이상</label>
-            <br>
         </form>
         <div id="chart">
             <div id="timeline-chart2"></div>
@@ -68,11 +82,11 @@
     <br>
 </div>
 
-<div>
+{% comment %} <div>
 {{graph1_m}}<br>
 {{graph1_w}}<br> 
 {{graph2}}<br>
-</div>
+</div> {% endcomment %}
 
 <script>
     function generateDayWiseTimeSeries(count, op) {
