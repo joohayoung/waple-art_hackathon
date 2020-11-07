@@ -106,3 +106,24 @@ input[type="radio"]:checked + label{
     display: flex;
     justify-content: center;
 }
+
+#fixed1{
+    position: absolute;
+    left: 20%;
+    top: 44%;
+    width: 25%;
+    height: 30px;
+    background-color: rgb(91, 201, 207);
+    color: white;
+    border: none;
+}
+#fixed2{
+    position: absolute;
+    left: 55%;
+    top: 44%;
+    width: 25%;
+    height: 30px;
+    background-color: rgb(91, 201, 207);
+    color: white;
+    border: none;
+}
