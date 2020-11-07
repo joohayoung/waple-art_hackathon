@@ -92,3 +92,9 @@ input[type="radio"]:checked + label{
   font-weight: 700;
   margin-top: 10px;
 }
+
+#img_ct{
+  width: 95%;
+  margin: 2.5%;
+  margin-top: 20px;
+}
