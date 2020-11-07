@@ -4,9 +4,6 @@ from django.db.models import Q, Count
 # Create your views here.
 
 def search(request):
-    return render(request, 'subapp/search.html')
-
-def result(request):
     context={}
     # 키워드 검색
     if request.method == "GET":
@@ -26,7 +23,7 @@ def result(request):
             pass #키워드 검색 안되면 전체
 
         context['contents'] = contents
-    return render(request, 'subapp/result.html', context)
+    return render(request, 'subapp/search.html', context)
 
 def detail(request, content_pk):
     context={}
