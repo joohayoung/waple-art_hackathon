@@ -20,23 +20,23 @@ with open(CSV_PATH, newline='', encoding='UTF8') as csvfile:
             address = row['area_addr'],
             region = row['ctprvn_nm'],
             image_url = row['url'],
-            allsum = row['lcls_all_total_co'] + row['otsd_all_total_co'] + row['tmp_frnr_all_total_co'],
+            allsum = int(row['lcls_all_total_co']) + int(row['otsd_all_total_co']) + int(row['tmp_frnr_all_total_co']) ,
 
-            kids_m = row['tmp_lcls_10s_belo_male_co'] + row['tmp_otsd_10s_belo_male_co'],
-            ten_m = row['tmp_lcls_10s_male_co'] + row['tmp_otsd_10s_male_co'],
-            twenty_m = row['tmp_lcls_20s_male_co'] + row['tmp_otsd_20s_male_co'],
-            thirty_m = row['tmp_lcls_30s_male_co'] + row['tmp_otsd_30s_male_co'],
-            forty_m = row['tmp_lcls_40s_male_co'] + row['tmp_otsd_40s_male_co'],
-            fifty_m = row['tmp_lcls_50s_male_co'] + row['tmp_otsd_50s_male_co'],
-            old_m = row['tmp_lcls_60s_above_male_co'] + row['tmp_otsd_60s_above_male_co'], #남자 60대이상
+            kids_m = int(row['tmp_lcls_10s_belo_male_co']) + int(row['tmp_otsd_10s_belo_male_co']),
+            ten_m = int(row['tmp_lcls_10s_male_co']) + int(row['tmp_otsd_10s_male_co']),
+            twenty_m = int(row['tmp_lcls_20s_male_co']) + int(row['tmp_otsd_20s_male_co']),
+            thirty_m = int(row['tmp_lcls_30s_male_co']) + int(row['tmp_otsd_30s_male_co']),
+            forty_m = int(row['tmp_lcls_40s_male_co']) + int(row['tmp_otsd_40s_male_co']),
+            fifty_m = int(row['tmp_lcls_50s_male_co']) + int(row['tmp_otsd_50s_male_co']),
+            old_m = int(row['tmp_lcls_60s_above_male_co']) + int(row['tmp_otsd_60s_above_male_co']), #남자 60대이상
 
-            kids_w = row['tmp_lcls_10s_belo_female_co'] + row['tmp_otsd_10s_belo_female_co'], #여자 10대미만
-            ten_w = row['tmp_lcls_10s_female_co'] + row['tmp_otsd_10s_female_co'],
-            twenty_w = row['tmp_lcls_20s_female_co'] + row['tmp_otsd_20s_female_co'],
-            thirty_w = row['tmp_lcls_30s_female_co'] + row['tmp_otsd_30s_female_co'],
-            forty_w = row['tmp_lcls_40s_female_co'] + row['tmp_otsd_40s_female_co'],
-            fifty_w = row['tmp_lcls_50s_female_co'] + row['tmp_otsd_50s_female_co'],
-            old_w = row['tmp_lcls_60s_above_female_co'] + row['tmp_otsd_60s_above_female_co'],#여자 60대이상
+            kids_w = int(row['tmp_lcls_10s_belo_female_co']) + int(row['tmp_otsd_10s_belo_female_co']), #여자 10대미만
+            ten_w = int(row['tmp_lcls_10s_female_co']) + int(row['tmp_otsd_10s_female_co']),
+            twenty_w = int(row['tmp_lcls_20s_female_co']) + int(row['tmp_otsd_20s_female_co']),
+            thirty_w = int(row['tmp_lcls_30s_female_co']) + int(row['tmp_otsd_30s_female_co']),
+            forty_w = int(row['tmp_lcls_40s_female_co']) + int(row['tmp_otsd_40s_female_co']),
+            fifty_w = int(row['tmp_lcls_50s_female_co']) + int(row['tmp_otsd_50s_female_co']),
+            old_w = int(row['tmp_lcls_60s_above_female_co']) + int(row['tmp_otsd_60s_above_female_co']),#여자 60대이상
         )
         count += 1
 
