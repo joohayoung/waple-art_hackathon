@@ -46,6 +46,7 @@
             {%csrf_token%}
             다음주 2020.09.01 ~2020.09.07 동안 <br>
             <button type="submit">결과보기</button>
+            **나이 전체 선택시 성별 선택 불가**
             <input type="radio" name="gender" id="성별전체" value="all" {% if gender == 'all' %}checked{% endif %}><label for="성별전체">전체</label>
             <input type="radio" name="gender" id="남성" value="man" {% if gender == 'man' %}checked{% endif %}><label for="남성">남성</label>
             <input type="radio" name="gender" id="여성" value="woman" {% if gender == 'woman' %}checked{% endif %}><label for="여성">여성</label><br>
