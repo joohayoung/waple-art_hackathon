@@ -2,14 +2,19 @@
 {% load static %}
 
 {% block style %}
+    <link rel="stylesheet" href="{% static 'firstapp/result.css' %}" type="text/css">
 {% endblock %}
 
 {% block content %}
-    <h1>추천결과 Top5</h1>
-    <a href = "{% url 'home' %}"> home > </a>
-
+    <h3>추천결과 Top5</h3>
+    <div id='intro'>
+        waple 점수가 높을수록 사용자에게 추천하는 장소임을 의미합니다.
+    </div>
+    <a id='back' href = "{% url 'home' %}"> &lt; BACK </a>
+    <br>
+    <br>
     {% for item in result %}
-        <div>
+        <div id='place'>
         Top{{forloop.counter}} : {{item.obj.title}} : {{item.obj.genres}} : {{item.pr}}
         </div>
     {% endfor %}

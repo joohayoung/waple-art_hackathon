@@ -1,0 +1,31 @@
+button{
+    background-color: rgb(91, 201, 207);
+    width: 60%;
+    height: 30px;
+    border-radius: 15px;
+    border: none;
+    color: white;
+    font-weight: 700;
+    margin-left: 20%;
+    margin-bottom: 20px;
+}
+
+#container{
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+#intro{
+    margin-left: 5%;
+    margin-right: 5%;
+    font-weight: 300;
+    font-size: 13px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+input{
+    position: absolute;
+    left: 300px;
+    width: 30px;
+}

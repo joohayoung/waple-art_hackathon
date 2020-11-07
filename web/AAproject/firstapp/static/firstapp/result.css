@@ -1,0 +1,36 @@
+#bt{
+    width: 18%;
+    height: 30px;
+    background-color: rgb(91, 201, 207);
+    color: white;
+    border: none;
+}
+
+#place{
+    width: 85%;
+    background-color: white;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+    border-radius: 3px;
+    padding: 10px;
+    box-shadow: 0 2px 10px -3px gray;
+    font-size: 15px;
+}
+
+#back{
+    margin: 20px;
+    font-weight: 800;
+    color: rgb(217, 151, 116);
+    font-size: 20px;
+}
+
+#intro{
+    margin-left: 5%;
+    margin-right: 5%;
+    font-weight: 300;
+    font-size: 13px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
