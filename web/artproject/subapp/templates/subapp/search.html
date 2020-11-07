@@ -2,52 +2,75 @@
 {% load static %}
 
 {% block style %}
-    <link rel="stylesheet" href="{% static 'subapp/search.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'subapp/result.css' %}" type="text/css">
 {% endblock %}
 
 {% block content %}
- <h3>search 결과</h3>
+<img id='feature3' src={% static 'mainapp/feature3.png' %} alt='feature3'>
+<h3>WAPLE 예술검색</h3>
+    <div id='intro'>
+        waple 예술검색은 전국의 다양한 전시, 공연, 행사 등을, 지역, 성별, 연령별 선호도 기준으로 검색할 수 있습니다.
+    </div>
  <!-- 다시검색 -->
  <div>
     <form action="{% url 'subapp:search' %}" method="GET">
         {% csrf_token %}
-        <input type="text" placeholder="wowplace" name="kw" value="{{kw|default_if_none:''}}">
-        <button type="submit" >검색</button> <br>
+        <div id='sb_ct'>
+            <input id='search_box' type="text" placeholder="wowplace" name="kw" value="{{kw|default_if_none:''}}">
+            <button id='bt' type="submit" >검색</button> <br>
+        </div>
         <div id='tag'>
-            <span>#경주</span>
+            {% comment %} <span>#경주</span>
             <span>#경주 공연</span>
-            <span>#서울 전시회</span>
+            <span>#서울 전시회</span> {% endcomment %}
             {% comment %} ex > 경주 / 경주 공연 / 서울 전시 예시키워드 몇개 두고 바뀌면 좋겠다<br>  {% endcomment %}
         </div>
     </form>
  </div>
  <!-- 필터링 -->
  <div>
-     검색 : {{kw}}
+     {% comment %} 검색 : {{kw}} {% endcomment %}
      <form action="" method="GET">
          {% csrf_token %}
-        <h3>상세 조건</h3>
-        날짜 : <input type="date" name="start"> ~ <input type="date" name="end"> <br>
-        정렬순 : 나중에 추가 <br>
-        유형 : 
-        <input type="checkbox" name="type[]" value="all"id="all" {% if license == 'all' %}checked{% endif %} >
-        <label for="all">전체</label>
-        <input type="checkbox" name="type[]" value="performance"id="performance" {% if 'performance' in license %}checked{% endif %}>
-        <label for="performance">공연/전시</label>
-        <input type="checkbox" name="type[]" value="festival"id="festival" {% if 'festival' in license %}checked{% endif %}>
-        <label for="festival">축제/행사</label>
-        <input type="checkbox" name="type[]" value="artwork"id="artwork" {% if 'artwork' in license %}checked{% endif %}>
-        <label for="artwork">미술작품/건축물</label><br>
-
-        <button type="reset">초기화</button>
-        <button type="submit">적용</button>
+        <h3>WAPLE 필터</h3>
+        <br>
+        <br>
+        <div id='filter_ct'>
+            <button id='fixed1' type="reset">초기화</button>
+            <div id='sub_title'>
+                날짜
+            </div>            
+            <div id='sb_ct'>
+                <input type="date" name="start"> ~ <input type="date" name="end"> <br>
+            </div>
+            <div id='sub_title'>
+                정렬순
+            </div>
+            <p>업데이트 예정</p>
+            <div id='sub_title'>
+                유형
+            </div>
+            <div>
+                <div id='radio_ct'>
+                    <input type="checkbox" name="type[]" value="all"id="all" {% if license == 'all' %}checked{% endif %} >
+                    <label for="all">전체</label>
+                    <input type="checkbox" name="type[]" value="performance"id="performance" {% if 'performance' in license %}checked{% endif %}>
+                    <label for="performance">공연/전시</label>
+                    <input type="checkbox" name="type[]" value="festival"id="festival" {% if 'festival' in license %}checked{% endif %}>
+                    <label for="festival">축제/행사</label>
+                    <input type="checkbox" name="type[]" value="artwork"id="artwork" {% if 'artwork' in license %}checked{% endif %}>
+                    <label for="artwork">미술작품/건축물</label><br>
+                </div>
+            </div>
+            <button id='fixed2' type="submit">적용</button>
+        </div>
     </form>
  </div>
  <!-- 결과 -->
  <div>
-     <h3>검색결과</h3>
+     <h3>WAPLE 검색 결과</h3>
      {% for content in contents %}
-    <div>
+    <div id='place'>
         <h4><a href="{% url 'subapp:detail' content.pk %}">{{content.title}}</a></h4>
         <b>주최 / 작가</b> : {{content.host}} <br>
         {% if content.region != N %} <b>지역</b> : {{content.region}}<br> {% endif %}
