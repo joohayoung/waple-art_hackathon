@@ -7,6 +7,74 @@
 </head>
 <body>
     <h1>home</h1>
-    <div></div>
+    <div>
+        <form action="{% url 'result' %}" method="POST">
+            {% csrf_token %}
+            <button type="submit">분석하기</button><br>
+            
+            <label for="place1">서울공연예술연습공간 - 별점 : </label><input type="number" name="place1" id="place1"><br>
+            <label for="place2">아르코예술기록원 - 별점 : </label><input type="number" name="place2" id="place2"><br>
+            <label for="place3">청주공연예술연습공간 - 별점 : </label><input type="number" name="place3" id="place3"><br>
+            <label for="place4">아르코예술인력개발원 - 별점 : </label><input type="number" name="place4" id="place4"><br>
+            <label for="place5">전주공연예술연습공간 - 별점 : </label><input type="number" name="place5" id="place5"><br>
+            <label for="place6">춘천공연예술연습공간 - 별점 : </label><input type="number" name="place6" id="place6"><br>
+            <label for="place7">세종공연예술연습공간 - 별점 : </label><input type="number" name="place7" id="place7"><br>
+            <label for="place8">창원공연예술연습공간 - 별점 : </label><input type="number" name="place8" id="place8"><br>
+            <label for="place9">강진공연예술연습공간 - 별점 : </label><input type="number" name="place9" id="place9"><br>
+            <label for="place10">금정공연예술연습공간 - 별점 : </label><input type="number" name="place10" id="place10"><br>
+
+            <label for="place11">서천공연예술연습공간 - 별점 : </label><input type="number" name="place11" id="place11"><br>
+            <label for="place12">부산공연예술연습공간 - 별점 : </label><input type="number" name="place12" id="place12"><br>
+            <label for="place13">광주공연예술연습공간 - 별점 : </label><input type="number" name="place13" id="place13"><br>
+            <label for="place14">부천공연예술연습공간 - 별점 : </label><input type="number" name="place14" id="place14"><br>
+            <label for="place15">인천공연예술연습공간 - 별점 : </label><input type="number" name="place15" id="place15"><br>
+            <label for="place16">울산공연예술연습공간 - 별점 : </label><input type="number" name="place16" id="place16"><br>
+            <label for="place17">예술가의집 - 별점 : </label><input type="number" name="place17" id="place17"><br>
+            <label for="place18">대구공연예술연습공간 - 별점 : </label><input type="number" name="place18" id="place18"><br>
+            <label for="place19">포항공연예술연습공간 - 별점 : </label><input type="number" name="place19" id="place19"><br>
+            <label for="place20">원주공연예술연습공간 - 별점 : </label><input type="number" name="place20" id="place20"><br>
+
+            <label for="place21">예울마루 - 별점 : </label><input type="number" name="place21" id="place21"><br>
+            <label for="place22">고흥문화회관 - 별점 : </label><input type="number" name="place22" id="place22"><br>
+            <label for="place23">영광예술의전당 - 별점 : </label><input type="number" name="place23" id="place23"><br>
+            <label for="place24">남도소리울림터 - 별점 : </label><input type="number" name="place24" id="place24"><br>
+            <label for="place25">강진군아트홀 - 별점 : </label><input type="number" name="place25" id="place25"><br>
+            <label for="place26">곡성레저문화센터 - 별점 : </label><input type="number" name="place26" id="place26"><br>
+            <label for="place27">광양문화예술회관 - 별점 : </label><input type="number" name="place27" id="place27"><br>
+            <label for="place28">구례문화예술회관 - 별점 : </label><input type="number" name="place28" id="place28"><br>
+            <label for="place29">나주문화예술회관 - 별점 : </label><input type="number" name="place29" id="place29"><br>
+            <label for="place30">담양문화회관 - 별점 : </label><input type="number" name="place30" id="place30"><br>
+
+            <label for="place31">장성문화예술회관 - 별점 : </label><input type="number" name="place31" id="place31"><br>
+            <label for="place32">목포시문화예술회관 - 별점 : </label><input type="number" name="place32" id="place32"><br>
+            <label for="place33">무안승달문화예술회관 - 별점 : </label><input type="number" name="place33" id="place33"><br>
+            <label for="place34">보성군문화예술회관 - 별점 : </label><input type="number" name="place34" id="place34"><br>
+            <label for="place35">순천문화예술회관 - 별점 : </label><input type="number" name="place35" id="place35"><br>
+            <label for="place36">여수시민회관 - 별점 : </label><input type="number" name="place36" id="place36"><br>
+            <label for="place37">완도문화예술의전당 - 별점 : </label><input type="number" name="place37" id="place37"><br>
+            <label for="place38">장흥문화예술회관 - 별점 : </label><input type="number" name="place38" id="place38"><br>
+            <label for="place39">진도향토문화회관 - 별점 : </label><input type="number" name="place39" id="place39"><br>
+            <label for="place40">해남문화예술회관 - 별점 : </label><input type="number" name="place40" id="place40"><br>
+
+            <label for="place41">밀양 누루(樓樓) 미술관	 - 별점 : </label><input type="number" name="place41" id="place41"><br>
+            <label for="place42">우리미술관 - 별점 : </label><input type="number" name="place42" id="place42"><br>
+            <label for="place43">소금나루 작은미술관	 - 별점 : </label><input type="number" name="place43" id="place43"><br>
+            <label for="place44">바래길 작은미술관	 - 별점 : </label><input type="number" name="place44" id="place44"><br>
+            <label for="place45">장생포고래로131 작은미술관	 - 별점 : </label><input type="number" name="place45" id="place45"><br>
+            <label for="place46">작은미술관 보구곶	 - 별점 : </label><input type="number" name="place46" id="place46"><br>
+            <label for="place47">서동 작은미술관	 - 별점 : </label><input type="number" name="place47" id="place47"><br>
+            <label for="place48">아트터미널 작은미술관	 - 별점 : </label><input type="number" name="place48" id="place48"><br>
+            <label for="place49">악양 작은미술관	 - 별점 : </label><input type="number" name="place49" id="place49"><br>
+            <label for="place50">노인과 둔장바다 작은미술관	 - 별점 : </label><input type="number" name="place50" id="place50"><br>
+
+            <label for="place51">기억을 모으는 미술관 ART-TEA	 - 별점 : </label><input type="number" name="place51" id="place51"><br>
+            <label for="place52">BRT 작은미술관	 - 별점 : </label><input type="number" name="place52" id="place52"><br>
+            <label for="place53">정라항 그리go 작은미술관 4048	 - 별점 : </label><input type="number" name="place53" id="place53"><br>
+            <label for="place54">정라항 그리go 작은미술관 5223	 - 별점 : </label><input type="number" name="place54" id="place54"><br>
+            <label for="place55">정라항 그리go 작은미술관 5219	 - 별점 : </label><input type="number" name="place55" id="place55"><br>
+            <label for="place56">정라항 그리go 작은미술관 1116	 - 별점 : </label><input type="number" name="place56" id="place56"><br>
+            <label for="place56">봉평콧등작은미술관	 - 별점 : </label><input type="number" name="place56" id="place56"><br>
+        </form>
+    </div>
 </body>
 </html>

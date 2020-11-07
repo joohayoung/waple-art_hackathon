@@ -6,6 +6,13 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>result</h1>
+    <h1>추천결과 Top5</h1>
+    <a href = "{% url 'home' %}"> home > </a>
+
+    {% for item in result %}
+        <div>
+        Top{{forloop.counter}} : {{item.obj.title}} : {{item.obj.genres}} : {{item.pr}}
+        </div>
+    {% endfor %}
 </body>
 </html>
