@@ -1,0 +1,72 @@
+@font-face { font-family: 'SCDream'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-1Thin.woff') format('woff'); font-weight: 100; }
+@font-face { font-family: 'SCDream'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-2ExtraLight.woff') format('woff'); font-weight: 200; }
+@font-face { font-family: 'SCDream'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff') format('woff'); font-weight: 300; }
+@font-face { font-family: 'SCDream'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-4Regular.woff') format('woff'); font-weight: 400; }
+@font-face { font-family: 'SCDream'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-5Medium.woff') format('woff'); font-weight: 500; }
+@font-face { font-family: 'SCDream'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-6Bold.woff') format('woff'); font-weight: 600; }
+@font-face { font-family: 'SCDream'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-7ExtraBold.woff') format('woff'); font-weight: 700; }
+@font-face { font-family: 'SCDream'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-8Heavy.woff') format('woff'); font-weight: 800; }
+@font-face { font-family: 'SCDream'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-9Black.woff') format('woff'); font-weight: 900; }
+
+body{
+    margin: 0px;
+    background-color: rgb(231, 190, 167);
+    font-family: 'SCDream';
+}
+a{
+    height: 50px;
+}
+a:link { color: black; text-decoration: none;}
+a:visited { color: black; text-decoration: none;}
+
+h3{
+    text-align: center;
+    color: white;
+}
+
+table{
+    font-size: 12px;
+    border-color: white;
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+    text-align: center;
+}
+button{
+    width: 30%;
+    margin: 20px;
+    margin-left: 35%;
+    margin-right: 35%;
+    height: 30px;
+    border-radius: 30px;
+    background-color: rgb(91, 201, 207);
+    color: white;
+    border: none;
+}
+
+#container{
+    font-size: 12px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-bottom: 10px;
+}
+#ct_items{
+    font-size: 12px;
+    width: 20%;
+    background-color: rgb(91, 201, 207);
+    color: white;
+    height: 30px;
+    border-radius: 0;
+    margin: 0;
+    text-align: center;
+    align-content: center;
+}
+#text_contents{
+    width: 90%;
+    margin-left: 5%;
+    margin-bottom: 10px;
+}
+p{
+    margin: 0;
+}

@@ -1,11 +1,10 @@
-{% extends 'base.html' %}
+{% extends 'base3.html' %}
 {% load static %}
 
 {% block style %}
 {% endblock %}
-
 {% block content %}
-    <h1>{{region}} 게시글 리스트</h1>
+    <h3>{{region}} 예술 기록</h3>
     {% if postlist %}
     <table border="1">
         <th>no</th>
@@ -17,14 +16,13 @@
                 <td>{{forloop.counter}}</td>
                 <td>{{post.date}}</td>
                 <td>{{post.city}}</td>
-                <td><a href="/{{post.pk}}">{{post.name}}</a></td>
+                <td><a href="/{{post.pk}}">{{post.name}} 클릭</a></td>
             </tr>
         {% endfor %}
     </table>
     {% else %}
         해당지역의 게시글이 없습니다.<br>
     {% endif %}
-
-    <button onclick="javascript:history.back();">뒤로가기</button>
+    {% comment %} <button onclick="javascript:history.back();">뒤로가기</button> {% endcomment %}
     <button onclick="window.close();">창닫기</button>
 {% endblock %}

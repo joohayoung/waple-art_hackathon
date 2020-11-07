@@ -1,0 +1,21 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ART Hackathon</title>
+    <link rel="stylesheet" href="{% static 'base3.css' %}" type="text/css">
+    {% block style %}
+    {% endblock %}
+</head>
+<body>
+    {% block content %}
+    {% endblock %}
+    {% comment %} <div id='bottom'>
+        <img id='text_logo' src={% static 'logo2.png' %} alt='logo'><br>
+        project team aloha 김신영 이지원 주하영 천희국 최다인<br>
+        copyrightⓒ 2020 All rights reserved by aloha
+    </div>     {% endcomment %}
+</body>
+</html>
