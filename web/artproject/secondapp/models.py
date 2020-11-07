@@ -1,5 +1,5 @@
 from django.db import models
-from subapp.models import ArtInfoDB
+# from subapp.models import ArtInfoDB
 # Create your models here.
 
 class PlaceDB(models.Model):

@@ -2,6 +2,7 @@ from django.shortcuts import render
 from .models import PlaceDB
 from accountapp.models import info
 from django.db.models import Q, Count
+from graph_output.main import outputpredictor
 # Create your views here.
 
 def place_search(request):
@@ -153,12 +154,15 @@ def place_detail(request, pk):
     context['graph1_m'] = [result.kids_m, result.ten_m, result.twenty_m, result.thirty_m, result.forty_m, result.fifty_m, result.old_m]
 
     # 분석 값 가져오기
-    age = request.GET.get('age', 'all')
-    gender = request.GET.get('gender', 'all')
+    age = request.GET.get('age', 'all') # 'all', 'man', 'woman'
+    gender = request.GET.get('gender', 'all') # '0' '10''20'... '60'
+    if age == "all":
+        gender = 'all'
+    title = result.title #'미술관이름~'
 
+    graph2 = outputpredictor(age, gender, title)
 
-
-    context['graph2'] = [777, 800, 100, 75, 84, 338, 400 ]
+    context['graph2'] = graph2 # [777, 800, 100, 75, 84, 338, 400 ]
     
     context['age'] = age
     context['gender'] = gender
