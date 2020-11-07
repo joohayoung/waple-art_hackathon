@@ -5,7 +5,7 @@ from django.db import models
 class ArtInfoDB(models.Model):
     title = models.CharField(max_length=30)
     host = models.CharField(max_length=30)
-    region = models.CharField(max_length=10)
+    region = models.CharField(max_length=10, Null=True)
     category = models.CharField(max_length=10)
     start_date = models.DateField(null=True, auto_now=False, auto_now_add=False)
     end_date = models.DateField(null=True, auto_now=False, auto_now_add=False)
@@ -25,8 +25,3 @@ class FestivalDB(models.Model):
     artinfo = models.ForeignKey(
         ArtInfoDB, on_delete=models.CASCADE, related_name='festival')
     content = models.TextField() #상세내용
-
-class ArtWorkDB(models.Model):
-    artinfo = models.ForeignKey(
-        ArtInfoDB, on_delete=models.CASCADE, related_name='artwork')
-    cl = models.CharField(max_length=10) #소분류

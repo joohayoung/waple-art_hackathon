@@ -7,6 +7,7 @@ class PlaceDB(models.Model):
     title = models.CharField(max_length=10) #장소명
     address = models.TextField() #주소
     region = models.CharField(max_length=10)#행정구역
+    image_url = models.TextField(null=True)
     allsum = models.IntegerField() #전체 유동인구
 
     kids_m = models.IntegerField() #남자 10대미만
