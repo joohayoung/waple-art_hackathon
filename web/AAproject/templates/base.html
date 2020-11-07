@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ART Hackathon</title>
+    <link rel="stylesheet" href="{% static 'base.css' %}" type="text/css">
+    {% block style %}
+    {% endblock %}
+</head>
+<body>
+    <div id='nav'>
+        <a href=""><img id='logo' src={% static 'logo.png' %} alt='logo'></a>
+        {% if user.is_authenticated %}
+        <!-- 로그인 한 사용자 -->
+            <li><a href="">마이맵</a></li>
+            <li><a href="">예술검색</a></li>
+            <li><a href="">공간검색</a></li>
+            <li>
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    <input type="hidden" name="path" value="{{request.path}}">
+                    <button id='log_out'type = submit>로그아웃</button>
+                </form>
+            </li>
+        {% else %}
+            <!-- 로그인하지 않은 사용자 -->
+            <!-- <li><a href="">Log-In</a></li> -->
+            <li><a href="">마이맵</a></li>
+            <li><a href="">예술검색</a></li>
+            <li><a href="">공간검색</a></li>
+            <li><a href="">로그인</a></li>
+        {% endif %}
+    </div>
+
+    {% block content %}
+    {% endblock %}
+    <div id='bottom'>
+        <img id='text_logo' src={% static 'logo2.png' %} alt='logo'><br>
+        project team aloha 김신영 이지원 주하영 천희국 최다인<br>
+        copyrightⓒ 2020 All rights reserved by aloha
+    </div>    
+</body>
+</html>

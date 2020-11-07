@@ -1,11 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% load static %}
+
+{% block style %}
+    <link rel="stylesheet" href="{% static 'firstapp:home.css' %}" type="text/css">
+{% endblock %}
+
+{% block content %}
     <h1>home</h1>
     <div>
         <form action="{% url 'result' %}" method="POST">
@@ -76,5 +76,4 @@
             <label for="place56">봉평콧등작은미술관	 - 별점 : </label><input type="number" name="place56" id="place56"><br>
         </form>
     </div>
-</body>
-</html>
+{% endblock %}
