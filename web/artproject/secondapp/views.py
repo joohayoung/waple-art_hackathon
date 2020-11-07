@@ -146,5 +146,22 @@ def place_search(request):
 def place_detail(request, pk):
     context={}
     result = PlaceDB.objects.get(pk = pk)
+    # 어차피 GET 요청만 들어온다
+    # 이번주 통계 값 DB에서 불러오기
+    # 0, 10, 20, 30, 40, 50, 60
+    context['graph1_w'] = [result.kids_w, result.ten_w, result.twenty_w, result.thirty_w, result.forty_w, result.fifty_w, result.old_w]
+    context['graph1_m'] = [result.kids_m, result.ten_m, result.twenty_m, result.thirty_m, result.forty_m, result.fifty_m, result.old_m]
+
+    # 분석 값 가져오기
+    age = request.GET.get('age', 'all')
+    gender = request.GET.get('gender', 'all')
+
+
+
+    context['graph2'] = [777, 800, 100, 75, 84, 338, 400 ]
+    
+    context['age'] = age
+    context['gender'] = gender
     context['result'] = result
+    context['pkk'] = pk
     return render(request, 'secondapp/place_detail.html', context)

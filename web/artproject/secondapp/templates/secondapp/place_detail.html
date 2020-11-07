@@ -16,65 +16,88 @@
         <b> 유동인구 : </b> xx20대 남성이 많이 방문xx
     </div>
     <div>
-        <h3>통계 그래프 들어갈 부분</h3> <br>
-        최근 20xx.xx.xx ~20xx.xx.xx 동안 <br>
-        남자 60%  | 여자 40% <br>
-        10대 00% 20대 00% 30대 00% 40대 00% 50대 00% 60대 00% <br>
+        <h3>이번주 통계</h3>
+        최근 2020.08.25 ~2020.08.31 동안 <br>
+        <!-- <form action="" method = "GET">
+            {%csrf_token%}
+            <button type="submit">결과보기</button>
+            <input type="radio" name="gender" id="성별전체" value="all" {% if gender == 'all' %}checked{% endif %}><label for="성별전체">전체</label>
+            <input type="radio" name="gender" id="남성" value="man" {% if gender == 'man' %}checked{% endif %}><label for="남성">남성</label>
+            <input type="radio" name="gender" id="여성" value="woman" {% if gender == 'woman' %}checked{% endif %}><label for="여성">여성</label><br>
+            <br>
+                <input type="radio" name="age" id="연령전체" value = "all" {% if age == 'all' %}checked{% endif %}><label for="연령전체">전체</label>
+            <input type="radio" name="age" id="0대" value="0" {% if age == "0" %}checked{% endif %}><label for="0대">10대 미만</label>
+            <input type="radio" name="age" id="10대" value="10" {% if age == "10" %}checked{% endif %}><label for="10대">10대</label>
+            <input type="radio" name="age" id="20대" value="20" {% if age == "20" %}checked{% endif %}><label for="20대">20대</label>
+            <input type="radio" name="age" id="30대" value="30" {% if age == "30" %}checked{% endif %}><label for="30대">30대</label>
+            <input type="radio" name="age" id="40대" value="40" {% if age == "40" %}checked{% endif %}><label for="40대">40대</label>
+            <input type="radio" name="age" id="50대" value="50" {% if age == "50" %}checked{% endif %}><label for="50대">50대</label>
+            <input type="radio" name="age" id="60대" value="60" {% if age == "60" %}checked{% endif %}><label for="60대">60대 이상</label>
+            <br>
+        </form> -->
+        <div id="chart">
+            <div id="timeline-chart"></div>
         </div>
-    <br>
+    </div>
+    
     <div>
-        <h3>예상 데이터가 들어갈 부분</h3>  <br>
-        다음 ?? 기간 동안  <br>
-         ex1) 20대 남자 유동인구가 많을 것으로 예상됩니다.
-         ex2) 남자 60%  | 여자 40% <br>
-         10대 00% 20대 00% 30대 00% 40대 00% 50대 00% 60대 00% <br>
-         로 예상됩니다.<br>
+        <h3>다음주 예상 통계</h3>
+        <form action="" method="GET">
+            {%csrf_token%}
+            다음주 2020.09.01 ~2020.09.07 동안 <br>
+            <button type="submit">결과보기</button>
+            <input type="radio" name="gender" id="성별전체" value="all" {% if gender == 'all' %}checked{% endif %}><label for="성별전체">전체</label>
+            <input type="radio" name="gender" id="남성" value="man" {% if gender == 'man' %}checked{% endif %}><label for="남성">남성</label>
+            <input type="radio" name="gender" id="여성" value="woman" {% if gender == 'woman' %}checked{% endif %}><label for="여성">여성</label><br>
+            <br>
+            <input type="radio" name="age" id="연령전체" value = "all" {% if age == 'all' %}checked{% endif %}><label for="연령전체">전체</label>
+            <input type="radio" name="age" id="0대" value="0" {% if age == "0" %}checked{% endif %}><label for="0대">10대 미만</label>
+            <input type="radio" name="age" id="10대" value="10" {% if age == "10" %}checked{% endif %}><label for="10대">10대</label>
+            <input type="radio" name="age" id="20대" value="20" {% if age == "20" %}checked{% endif %}><label for="20대">20대</label>
+            <input type="radio" name="age" id="30대" value="30" {% if age == "30" %}checked{% endif %}><label for="30대">30대</label>
+            <input type="radio" name="age" id="40대" value="40" {% if age == "40" %}checked{% endif %}><label for="40대">40대</label>
+            <input type="radio" name="age" id="50대" value="50" {% if age == "50" %}checked{% endif %}><label for="50대">50대</label>
+            <input type="radio" name="age" id="60대" value="60" {% if age == "60" %}checked{% endif %}><label for="60대">60대 이상</label>
+            <br>
+        </form>
+        <div id="chart">
+            <div id="timeline-chart2"></div>
+        </div>
     </div>
     <br>
-    기타정보 : <br>
 </div>
-<div id="chart">
-    <div id="timeline-chart"></div>
+
+<div>
+{{graph1_m}}<br>
+{{graph1_w}}<br> 
+{{graph2}}<br>
 </div>
+
 <script>
-    var options = {
-    chart: {type: "area", height: 300, foreColor: "#ffffff", stacked: true,
-    dropShadow: {enabled: true, enabledSeries: [0], top: -2, left: 2, blur: 5,opacity: 0.06}},
-    colors: ['#ff540a', '#0090FF'], //차트 색상 
-    stroke: {curve: "smooth",width: 3},
-    dataLabels: {enabled: false},
-    series: [
-    {name: 'first data', data: generateDayWiseTimeSeries(0, 18)},
-    {name: 'second data', data: generateDayWiseTimeSeries(1, 18)}],
-    markers: {size: 0, strokeColor: "#fff", strokeWidth: 3,
-    strokeOpacity: 1, fillOpacity: 1,hover: {size: 6}},
-    xaxis: {type: "datetime", axisBorder: {show: false},axisTicks: {show: false}},
-    yaxis: {labels: {offsetX: 14,offsetY: -5},tooltip: {enabled: true}},
-    grid: {padding: {left: -5,right: 5}},
-    tooltip: {x: {format: "dd MMM yyyy"},},
-    legend: {position: 'top', horizontalAlign: 'left'},
-    fill: { type: "solid", fillOpacity: 0.7}
-    };
-
-    var chart = new ApexCharts(document.querySelector("#timeline-chart"), options);
-
-    chart.render();
-
-    function generateDayWiseTimeSeries(s, count) {
-      var values = [
-        [4,3,10,9,29,19,25,9,12,7,19,5,13,9,17,2,7,5], //데이터
-        [2,3,8,7,22,16,23,7,11,5,12,5,10,4,15,2,6,2]
-        ];
+    function generateDayWiseTimeSeries(count, op) {
+      //var values =[80, 383, 280, 310, 395, 532, 652]; 
+      if (op ==1){var values = 0;}//{{graph1}};}
+      else{var values ={{graph2}};} //데이터
       var i = 0;
       var series = [];
-      var x = new Date("11 Nov 2012").getTime();
+      var x = new Date("02 Sep 2020").getTime();
       while (i < count) {
-        series.push([x, values[s][i]]);
+        series.push([x, values[i]]);
         x += 86400000;
         i++;
         }
         return series;
     }
+
+    function weekvalue(op){
+        if(op == 0){
+            var values={{graph1_m}};
+        }else{
+            var values={{graph1_w}};
+        }
+        return values
+    }
 </script>
+<script src="{% static 'secondapp/place_detail.js'%}"></script>
 
 {% endblock %}
