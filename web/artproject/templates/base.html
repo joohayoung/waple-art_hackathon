@@ -30,7 +30,7 @@
             <li><a href="{% url 'mainapp:map' %}">마이맵</a></li>
             <li><a href="{% url 'subapp:search' %}">예술검색</a></li>
             <li><a href="{% url 'secondapp:place_search' %}">공간검색</a></li>
-            <li><a href="{% url 'accountapp:login' %}">로그인</a></li>
+            <li><a href="{% url 'accountapp:login' %}?next={{ request.path }}">로그인</a></li>
         {% endif %}
     </div>
 

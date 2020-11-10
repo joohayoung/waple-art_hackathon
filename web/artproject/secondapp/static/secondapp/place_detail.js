@@ -46,16 +46,22 @@ colors: ['#4098f0'], //차트 색상
 stroke: {curve: "smooth",width: 3},
 dataLabels: {enabled: false},
 series: [
-{name: 'first data', data: generateDayWiseTimeSeries(7, 2)},
+{name: 'the floating population', data:graph2()},//generateDayWiseTimeSeries(7, 2)},
 // {name: 'second data', data: generateDayWiseTimeSeries(1, 18)}
 ],
 markers: {size: 0, strokeColor: "#fff", strokeWidth: 3,
 strokeOpacity: 1, fillOpacity: 1,hover: {size: 6}},
-xaxis: {type: "datetime", axisBorder: {show: false}, axisTicks: {show: false},
-        // categories: ['01 Sep', '02 Sep', '03 Sep', '04 Sep', '05 Sep', '06 Sep', '07 Sep'],
+xaxis: {
+    // type: "datetime", 
+    axisBorder: {show: false}, axisTicks: {show: false},
+    categories: ['01 Sep', '02 Sep', '03 Sep', '04 Sep', '05 Sep', '06 Sep', '07 Sep'],
     },
-yaxis: {labels: {offsetX: 14,offsetY: -5},tooltip: {enabled: false}},
-grid: {padding: {left: -5,right: 5}},
+yaxis: {
+    min : minvalue(),
+    labels: {offsetX: 14,offsetY: -5},
+    tooltip: {enabled: false}
+},
+grid: {padding: {left: 0,right: 10}},
 tooltip: {x: {format: "dd MMM yyyy"},},
 legend: {position: 'top', horizontalAlign: 'left'},
 fill: { type: "solid", fillOpacity: 0.5}

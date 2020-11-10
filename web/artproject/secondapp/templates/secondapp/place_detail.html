@@ -104,6 +104,17 @@
         }
         return series;
     }
+    function graph2(){
+        return {{graph2}}
+    }
+
+    function minvalue(){
+        var values = {{graph2}}
+        var min = Math.min.apply(null, values);
+        var max = Math.max.apply(null, values);
+
+        return min - (max-min)/3
+    }
 
     function weekvalue(op){
         if(op == 0){

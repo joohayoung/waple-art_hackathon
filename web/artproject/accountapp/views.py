@@ -47,8 +47,6 @@ def info_detail(request):
 def login(request):
     context={}
 
-    # next= request.GET['next']
-    # POST Method
     if request.method == "POST":
         username = request.POST['username']
         password = request.POST['password']
@@ -61,8 +59,10 @@ def login(request):
             if user is not None:
                 # 사용자가 있으면 로그인후 home으로
                 auth.login(request, user)
-                return redirect('mainapp:map')
-                # return redirect(next)
+                next_url = request.POST.get('next')
+                if next_url :
+                    return redirect(next_url)
+                return redirect('mainapp:home')
             else:
                 context['error'] = '아이디와 비밀번호를 다시 확인해주세요.'
         else:
@@ -70,6 +70,8 @@ def login(request):
             context['error'] = '아이디와 비밀번호를 모두 입력해주세요.'
 
     # Get Method
+    next_url = request.GET.get('next')
+    context['next'] = next_url
     return render(request, 'accountapp/login.html', context)
 
 def logout(request):

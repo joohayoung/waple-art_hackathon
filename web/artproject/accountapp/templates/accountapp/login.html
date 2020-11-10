@@ -26,6 +26,7 @@
                 {% comment %} <label class='log_lb' for="password">비밀번호</label> {% endcomment %}
                 <input type="password" id='password' placeholder="비밀번호" name="password">
             </div>
+            <input type="hidden" name="next" value="{{ next }}">
             <button type="submit">로그인</button>
         </form>
         <div class="account">
