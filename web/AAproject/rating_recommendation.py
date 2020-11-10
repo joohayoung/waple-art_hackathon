@@ -17,12 +17,12 @@ df_user=pd.read_csv('./df_user.csv',encoding='utf-8')
 # score_list: 56개 평점값 입력 [0, 5, 4, 3, ...., 5, 0, 0, 1]
 
 
-num=df_user.iloc[-1,0]+1
 
 def main(score_list):
     global df_user
-    a=pd.DataFrame(score_list)
     
+    a=pd.DataFrame(score_list)
+    num=df_user.iloc[-1,0]+1
     a=[]
     for i in range(56):
 #         a.append(num) # userid
@@ -39,7 +39,13 @@ def main(score_list):
 #         df_user=pd.concat([df_user,b],ignore_index=True)
 #         print(b)
         a=[]
-    
+    # num=df_user.iloc[-1,0]+1    
+    ######################################################
+    # 새로운 input csv에 저장하기
+    # df_user.to_csv("./df_user.csv", index=False)
+    # df_user=pd.read_csv('./df_user.csv',encoding='utf-8')
+
+    ######################################################
 #     print(df_user)
     user_area_data=pd.merge(df_user,df_area,on="areaid")
 
@@ -71,45 +77,52 @@ def main(score_list):
     svd_user_predicted_ratings = np.dot(np.dot(U, sigma), Vt) + user_ratings_mean.reshape(-1, 1)
 
     df_svd_preds = pd.DataFrame(svd_user_predicted_ratings, columns = user_area_rating.columns)
-
-
+    
+    ###################################################
     def recommend_areas(df_svd_preds, user_id, ori_df_area, ori_ratings_df, num_recommendations=5):
         
         #현재는 index로 적용이 되어있으므로 user_id - 1을 해야함.
         user_row_number = user_id - 1 
-
+        
         # 최종적으로 만든 pred_df에서 사용자 index에 따라 영화 데이터 정렬 -> 영화 평점이 높은 순으로 정렬 됌
         sorted_user_predictions = df_svd_preds.iloc[user_row_number].sort_values(ascending=False)
-
+        
         # 원본 평점 데이터에서 user id에 해당하는 데이터를 뽑아낸다. 
         user_data = ori_ratings_df[ori_ratings_df.userid == user_id]
-
+        
         # 위에서 뽑은 user_data와 원본 영화 데이터를 합친다. 
         user_history = user_data.merge(df_area, on = 'areaid').sort_values(['rating'], ascending=False)
-
+        
         # 원본 영화 데이터에서 사용자가 본 영화 데이터를 제외한 데이터를 추출
+        # recommendations = ori_df_area[~ori_df_area['areaid'].isin(user_history['areaid'])]
         recommendations = ori_df_area[~ori_df_area['areaid'].isin(user_history['areaid'])]
-
+        # print(recommendations)
+        # print(ori_df_area)
         # 모두 가봤다면 Empty로 에러가발생..
         # # 안본게 없다면 즉,
         if(recommendations.empty==True):# 공백이라면
             recommendations=ori_df_area # 다시 전부 추천
 
         # 사용자의 영화 평점이 높은 순으로 정렬된 데이터와 위 recommendations을 합친다. 
-
+        
         recommendations = recommendations.merge( pd.DataFrame(sorted_user_predictions).reset_index(), on = 'areaid')
-
+        
         # 컬럼 이름 바꾸고 정렬해서 return
         recommendations = recommendations.rename(columns = {user_row_number: 'Predictions'}).sort_values('Predictions', ascending = False).iloc[:num_recommendations, :]
 
+        
         return user_history, recommendations
-
-    # 여기서 
-    already_rated, predictions = recommend_areas(df_svd_preds, num, df_area, df_user, 5)
-
+    ###########################################
+    # 여기서
+    print(num) 
+    already_rated, predictions = recommend_areas(df_svd_preds, 28 , df_area, df_user, 5)
+    print(already_rated)
     print("안녕")
-    # print(predictions[])
+    print(predictions)
+    # print(predictions['areaid'].to_list)
+    # print(predictions['Predictions'].to_list)
 
+    # return predictions
     return predictions['areaid'].values, predictions['Predictions'].values
 
 

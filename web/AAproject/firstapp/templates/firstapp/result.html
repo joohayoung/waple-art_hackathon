@@ -15,7 +15,7 @@
     <br>
     {% for item in result %}
         <div id='place'>
-        Top{{forloop.counter}} : {{item.obj.title}} : {{item.obj.genres}} : {{item.pr}}
+        <b>Top{{forloop.counter}}</b> {{item.obj.title}} - {{item.obj.genres}}<br>유사도 :  {{item.pr}}
         </div>
     {% endfor %}
 {% endblock %}

@@ -20,13 +20,18 @@ def result(request):
 
         # print(userinput)
         idx, pred = main(userinput)
-
+        # df = main(userinput)
+        # print(df)
         print(idx)
         print(pred)
+
+        for i in range(len(pred)):
+            pred[i] = round(pred[i], 2)
+
         # idx = [1, 2, 3, 4, 5]
         # pred = [1.1, 1.2, 1.3, 1.4, 1.5]
         result = []
-        for i in range(1):
+        for i in range(5):
             obj = Areainfo.objects.get(pk = idx[i])
             pr = pred[i]
             result.append({'obj' : obj, 'pr' : pr})
